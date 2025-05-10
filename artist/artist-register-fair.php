@@ -6,40 +6,14 @@
     <title>Register for Art Fairs - ArtGallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="artist-artworks.html">ArtGallery</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                </ul>
-                <div class="d-flex align-items-center">
-                    <a href="artist-dashboard.html" class="btn btn-outline-primary me-2">Artist Dashboard</a>
-                    <div class="dropdown">
-                        <a class="nav-icon dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="/placeholder.svg?height=32&width=32" alt="Artist Name" class="rounded-circle" width="32" height="32">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="artist-profile.html">My Profile</a></li>
-                            <li><a class="dropdown-item active" href="artist-artworks.html">My Artworks</a></li>
-                            <li><a class="dropdown-item" href="artist-gallery.html">My Gallery</a></li>
-                            <li><a class="dropdown-item" href="artist-virtual-gallery.html">Virtual Gallery</a></li>
-                            <li><a class="dropdown-item" href="artist-register-fair.html">Register for Fairs</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+
+<?php 
+include 'includes/header.php';
+?>
+
 
     <!-- Register for Art Fairs Hero -->
     <section class="page-hero">

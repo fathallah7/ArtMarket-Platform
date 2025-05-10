@@ -1,45 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Artworks - ArtGallery</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="artist-artworks.html">ArtGallery</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                </ul>
-                <div class="d-flex align-items-center">
-                    <a href="artist-dashboard.html" class="btn btn-outline-primary me-2">Artist Dashboard</a>
-                    <div class="dropdown">
-                        <a class="nav-icon dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="/placeholder.svg?height=32&width=32" alt="Artist Name" class="rounded-circle" width="32" height="32">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                            <li><a class="dropdown-item" href="artist-profile.html">My Profile</a></li>
-                            <li><a class="dropdown-item active" href="artist-artworks.html">My Artworks</a></li>
-                            <li><a class="dropdown-item" href="artist-gallery.html">My Gallery</a></li>
-                            <li><a class="dropdown-item" href="artist-virtual-gallery.html">Virtual Gallery</a></li>
-                            <li><a class="dropdown-item" href="artist-register-fair.html">Register for Fairs</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
-                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+
+    <?php
+    include 'includes/header.php';
+    ?>
+
+
 
     <!-- My Artworks Hero -->
     <section class="page-hero">
@@ -86,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Artwork Grid -->
             <div class="row g-4">
                 <!-- Artwork 1 -->
@@ -115,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 2 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -142,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 3 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -169,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 4 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -196,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 5 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -223,7 +200,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 6 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -250,7 +227,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 7 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -277,7 +254,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Artwork 8 -->
                 <div class="col-md-3">
                     <div class="artwork-card">
@@ -305,7 +282,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Pagination -->
             <nav aria-label="Artwork pagination" class="mt-5">
                 <ul class="pagination justify-content-center">
@@ -330,7 +307,7 @@
                 <h2>Artwork Statistics</h2>
                 <p class="text-muted">Track the performance of your artwork</p>
             </div>
-            
+
             <div class="row g-4">
                 <div class="col-md-3">
                     <div class="stat-card text-center">
@@ -369,7 +346,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row mt-5">
                 <div class="col-lg-8 mx-auto">
                     <div class="card">
@@ -505,7 +482,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <h5>Artwork Details</h5>
                             <div class="row g-3">
@@ -553,7 +530,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <h5>Pricing & Availability</h5>
                             <div class="row g-3">
@@ -590,7 +567,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mb-4">
                             <h5>Keywords & Tags</h5>
                             <div class="mb-3">
@@ -633,4 +610,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/artist-artworks.js"></script>
 </body>
+
 </html>

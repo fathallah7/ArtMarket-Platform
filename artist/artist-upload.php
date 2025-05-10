@@ -1,100 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upload Artwork - ArtGallery</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body>
+
+  <?php
+  include 'includes/header.php';
+  ?>
+
+
   <div class="d-flex">
-    <!-- Sidebar -->
-    <div class="sidebar bg-white border-end">
-      <div class="d-flex flex-column align-items-center p-3 border-bottom">
-        <a href="artist-dashboard.html" class="d-flex align-items-center mb-3 text-decoration-none">
-          <span class="fs-4 fw-bold text-primary">ArtGallery</span>
-        </a>
-        <div class="text-center mb-3">
-          <div class="avatar-container mb-2">
-            <img src="https://via.placeholder.com/64" alt="User" class="rounded-circle" width="64" height="64">
-          </div>
-          <p class="mb-0 fw-medium">Elena Rodriguez</p>
-          <small class="text-muted">Artist</small>
-        </div>
-      </div>
-      <ul class="nav flex-column p-3">
-        <li class="nav-item mb-2">
-          <a href="artist-dashboard.html" class="nav-link">
-            <i class="bi bi-house-door me-2"></i> Dashboard
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a href="artist-artworks.html" class="nav-link">
-            <i class="bi bi-palette me-2"></i> My Artworks
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a href="artist-upload.html" class="nav-link active">
-            <i class="bi bi-file-earmark-arrow-up me-2"></i> Upload Artwork
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a href="artist-gallery.html" class="nav-link">
-            <i class="bi bi-grid-3x3 me-2"></i> Virtual Gallery
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a href="artist-register-fair.html" class="nav-link">
-            <i class="bi bi-pin-map me-2"></i> Register Fair
-          </a>
-        </li>
-        <li class="nav-item mb-2">
-          <a href="artist-profile.html" class="nav-link">
-            <i class="bi bi-person me-2"></i> Profile
-          </a>
-        </li>
-        <li class="nav-item mt-auto">
-          <a href="login.html" class="nav-link text-danger">
-            <i class="bi bi-box-arrow-right me-2"></i> Log Out
-          </a>
-        </li>
-      </ul>
-    </div>
 
     <!-- Main content -->
     <div class="main-content">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav me-auto">
-              </ul>
-              <div class="d-flex align-items-center">
-                  <a href="artist-dashboard.html" class="btn btn-outline-primary me-2">Artist Dashboard</a>
-                  <div class="dropdown">
-                      <a class="nav-icon dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img src="/placeholder.svg?height=32&width=32" alt="Artist Name" class="rounded-circle" width="32" height="32">
-                      </a>
-                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                          <li><a class="dropdown-item" href="artist-profile.html">My Profile</a></li>
-                          <li><a class="dropdown-item active" href="artist-artworks.html">My Artworks</a></li>
-                          <li><a class="dropdown-item" href="artist-gallery.html">My Gallery</a></li>
-                          <li><a class="dropdown-item" href="artist-virtual-gallery.html">Virtual Gallery</a></li>
-                          <li><a class="dropdown-item" href="artist-register-fair.html">Register for Fairs</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="settings.html">Settings</a></li>
-                          <li><a class="dropdown-item" href="login.html">Logout</a></li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </nav>
 
       <!-- Page content -->
       <div class="container py-4 animate-fade-in">
@@ -102,7 +28,7 @@
           <a href="artist-dashboard.html" class="btn btn-link text-decoration-none text-muted ps-0">
             <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
           </a>
-          
+
           <h1 class="fw-bold mt-3">Upload New Artwork</h1>
           <p class="text-muted">Share your latest creation with art enthusiasts around the world.</p>
         </div>
@@ -117,7 +43,7 @@
                 <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images" type="button" role="tab">Images</button>
               </li>
             </ul>
-            
+
             <form id="uploadForm">
               <div class="tab-content mt-4">
                 <div class="tab-pane fade show active" id="details" role="tabpanel">
@@ -331,6 +257,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -339,48 +266,48 @@
     document.addEventListener('DOMContentLoaded', function() {
       const sidebarToggle = document.getElementById('sidebarToggle');
       const sidebar = document.querySelector('.sidebar');
-      
+
       if (sidebarToggle) {
         sidebarToggle.addEventListener('click', function() {
           sidebar.classList.toggle('show');
         });
       }
-      
+
       // Close sidebar when clicking outside on mobile
       document.addEventListener('click', function(event) {
         const isClickInsideSidebar = sidebar.contains(event.target);
         const isClickOnToggle = sidebarToggle && sidebarToggle.contains(event.target);
-        
+
         if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('show')) {
           sidebar.classList.remove('show');
         }
       });
-      
+
       // Handle file uploads
       const fileInput = document.getElementById('artwork-images');
       const previewContainer = document.getElementById('image-preview-container');
       const uploadedImagesSection = document.getElementById('uploaded-images');
-      
+
       fileInput.addEventListener('change', function() {
         if (this.files.length > 0) {
           uploadedImagesSection.classList.remove('d-none');
           previewContainer.innerHTML = '';
-          
+
           Array.from(this.files).forEach((file, index) => {
             const reader = new FileReader();
             reader.onload = function(e) {
               const col = document.createElement('div');
               col.className = 'col-4';
-              
+
               const imageContainer = document.createElement('div');
               imageContainer.className = 'position-relative border rounded overflow-hidden';
               imageContainer.style.aspectRatio = '1';
-              
+
               const img = document.createElement('img');
               img.src = e.target.result;
               img.className = 'w-100 h-100 object-fit-cover';
               img.alt = 'Artwork preview';
-              
+
               const removeBtn = document.createElement('button');
               removeBtn.className = 'btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle';
               removeBtn.innerHTML = '&times;';
@@ -395,14 +322,14 @@
                   uploadedImagesSection.classList.add('d-none');
                 }
               });
-              
+
               if (index === 0) {
                 const primaryBadge = document.createElement('div');
                 primaryBadge.className = 'position-absolute bottom-0 start-0 end-0 bg-primary text-white text-center py-1 small';
                 primaryBadge.textContent = 'Primary Image';
                 imageContainer.appendChild(primaryBadge);
               }
-              
+
               imageContainer.appendChild(img);
               imageContainer.appendChild(removeBtn);
               col.appendChild(imageContainer);
@@ -412,7 +339,7 @@
           });
         }
       });
-      
+
       // Form submission
       const uploadForm = document.getElementById('uploadForm');
       uploadForm.addEventListener('submit', function(e) {
@@ -421,17 +348,18 @@
         window.location.href = 'artist-upload-success.html';
       });
     });
-    
+
     // Tab navigation functions
     function switchToImagesTab() {
       const imagesTab = document.getElementById('images-tab');
       bootstrap.Tab.getOrCreateInstance(imagesTab).show();
     }
-    
+
     function switchToDetailsTab() {
       const detailsTab = document.getElementById('details-tab');
       bootstrap.Tab.getOrCreateInstance(detailsTab).show();
     }
   </script>
 </body>
+
 </html>
