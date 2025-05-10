@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artist Profile - ArtGallery</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="artist-artworks.html">ArtGallery</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+            </ul>
+            <div class="d-flex align-items-center">
+                <a href="artist-dashboard.html" class="btn btn-outline-primary me-2">Artist Dashboard</a>
+                    <div class="dropdown">
+                <a class="nav-icon dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="/placeholder.svg?height=32&width=32" alt="Artist Name" class="rounded-circle" width="32" height="32">
+                </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="artist-profile.html">My Profile</a></li>
+                            <li><a class="dropdown-item active" href="artist-artworks.html">My Artworks</a></li>
+                            <li><a class="dropdown-item" href="artist-gallery.html">My Gallery</a></li>
+                            <li><a class="dropdown-item" href="artist-virtual-gallery.html">Virtual Gallery</a></li>
+                            <li><a class="dropdown-item" href="artist-register-fair.html">Register for Fairs</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Artist Profile Header -->
+<section class="artist-profile-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center">
+                <img src="/placeholder.svg?height=250&width=250" alt="Elena Rodriguez" class="img-fluid rounded-circle artist-profile-image">
+            </div>
+            <div class="col-md-9">
+                <h1>Elena Rodriguez</h1>
+                <p class="text-muted">Contemporary Painter | Based in Barcelona, Spain</p>
+                <div class="artist-stats d-flex flex-wrap gap-4 mb-3">
+                    <div>
+                        <small class="text-muted">Artworks</small>
+                        <p class="mb-0 fw-bold">48</p>
+                    </div>
+                    <div>
+                        <small class="text-muted">Exhibitions</small>
+                        <p class="mb-0 fw-bold">12</p>
+                    </div>
+                    <div>
+                        <small class="text-muted">Collections</small>
+                        <p class="mb-0 fw-bold">8</p>
+                    </div>
+                    <div>
+                        <small class="text-muted">Followers</small>
+                        <p class="mb-0 fw-bold">1.2K</p>
+                    </div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary">
+                        <i class="bi bi-person-plus me-2"></i> Follow
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-share me-2"></i> Share
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        <i class="bi bi-envelope me-2"></i> Contact
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Artist Tabs -->
+<section class="artist-tabs">
+    <div class="container">
+        <ul class="nav nav-tabs" id="artistTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="artworks-tab" data-bs-toggle="tab" data-bs-target="#artworks" type="button" role="tab" aria-controls="artworks" aria-selected="true">Artworks</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exhibitions-tab" data-bs-toggle="tab" data-bs-target="#exhibitions" type="button" role="tab" aria-controls="exhibitions" aria-selected="false">Exhibitions</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="collections-tab" data-bs-toggle="tab" data-bs-target="#collections" type="button" role="tab" aria-controls="collections" aria-selected="false">Collections</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="press-tab" data-bs-toggle="tab" data-bs-target="#press" type="button" role="tab" aria-controls="press" aria-selected="false">Press</button>
+            </li>
+        </ul>
+        <div class="tab-content py-4" id="artistTabsContent">
+            <!-- Artworks Tab -->
+            <div class="tab-pane fade show active" id="artworks" role="tabpanel" aria-labelledby="artworks-tab">
+                <div class="artwork-filters mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search artworks">
+                                <button class="btn btn-outline-primary" type="button">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option selected>Filter by Medium</option>
+                                <option>Acrylic</option>
+                                <option>Oil</option>
+                                <option>Mixed Media</option>
+                                <option>Watercolor</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <select class="form-select">
+                                <option selected>Sort by</option>
+                                <option>Newest</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Most Popular</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- Artwork 1 -->
+                    <div class="col-md-3">
+                        <div class="artwork-card">
+                            <div class="artwork-image">
+                                <img src="/placeholder.svg?height=300&width=300" alt="Colorful Abstraction" class="img-fluid rounded">
+                                <div class="artwork-actions">
+                                    <button class="btn-favorite" title="Add to Favorites">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="btn-preview" title="View in Room">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="artwork-info mt-3">
+                                <h4>Colorful Abstraction</h4>
+                                <p class="price">$1,200</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="artwork-detail.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <button class="btn btn-sm btn-primary add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Artwork 2 -->
+                    <div class="col-md-3">
+                        <div class="artwork-card">
+                            <div class="artwork-image">
+                                <img src="/placeholder.svg?height=300&width=300" alt="Vibrant Dreams" class="img-fluid rounded">
+                                <div class="artwork-actions">
+                                    <button class="btn-favorite" title="Add to Favorites">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="btn-preview" title="View in Room">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="artwork-info mt-3">
+                                <h4>Vibrant Dreams</h4>
+                                <p class="price">$950</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="artwork-detail.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <button class="btn btn-sm btn-primary add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Artwork 3 -->
+                    <div class="col-md-3">
+                        <div class="artwork-card">
+                            <div class="artwork-image">
+                                <img src="/placeholder.svg?height=300&width=300" alt="Emotional Landscape" class="img-fluid rounded">
+                                <div class="artwork-actions">
+                                    <button class="btn-favorite" title="Add to Favorites">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="btn-preview" title="View in Room">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="artwork-info mt-3">
+                                <h4>Emotional Landscape</h4>
+                                <p class="price">$1,100</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="artwork-detail.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <button class="btn btn-sm btn-primary add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Artwork 4 -->
+                    <div class="col-md-3">
+                        <div class="artwork-card">
+                            <div class="artwork-image">
+                                <img src="/placeholder.svg?height=300&width=300" alt="Urban Reflections" class="img-fluid rounded">
+                                <div class="artwork-actions">
+                                    <button class="btn-favorite" title="Add to Favorites">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                    <button class="btn-preview" title="View in Room">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="artwork-info mt-3">
+                                <h4>Urban Reflections</h4>
+                                <p class="price">$1,350</p>
+                                <div class="d-flex justify-content-between">
+                                    <a href="artwork-detail.html" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    <button class="btn btn-sm btn-primary add-to-cart">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- More artworks would be added here -->
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-5">
+                    <button class="btn btn-outline-primary">Load More Artworks</button>
+                </div>
+            </div>
+            
+            <!-- About Tab -->
+            <div class="tab-pane fade" id="about" role="tabpanel" aria-labelledby="about-tab">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3>Biography</h3>
+                        <p>Elena Rodriguez is a contemporary artist known for her vibrant and emotionally charged paintings. Born in Barcelona in 1985, she developed an early interest in art, studying at the Barcelona School of Fine Arts before completing her Master's degree at the Royal College of Art in London.</p>
+                        <p>Her work explores themes of identity, memory, and the human experience through bold colors and expressive brushwork. Drawing inspiration from both urban environments and natural landscapes, Elena creates pieces that invite viewers to explore their own emotional responses to color and form.</p>
+                        <p>With over 15 years of experience, Elena has exhibited her work in galleries across Europe and North America, earning critical acclaim for her unique artistic vision. Her paintings are held in private collections worldwide and have been featured in several prestigious art publications.</p>
+                        
+                        <h3 class="mt-4">Artist Statement</h3>
+                        <p>"My work is an exploration of the emotional landscape that exists within all of us. Through color, texture, and movement, I seek to create visual experiences that resonate on a deeply personal level with viewers. Each painting is a journey—both for me as I create it and for those who engage with it.</p>
+                        <p>I believe that art has the power to transcend language and cultural barriers, speaking directly to our shared human experience. My goal is to create works that not only please the eye but also stir the soul, inviting reflection and emotional connection."</p>
+                        
+                        <h3 class="mt-4">Education</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <p class="mb-0 fw-bold">Master of Fine Arts</p>
+                                <p class="mb-0">Royal College of Art, London</p>
+                                <p class="text-muted">2007-2009</p>
+                            </li>
+                            <li>
+                                <p class="mb-0 fw-bold">Bachelor of Fine Arts</p>
+                                <p class="mb-0">Barcelona School of Fine Arts</p>
+                                <p class="text-muted">2003-2007</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="artist-sidebar">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h4>Contact Information</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2">
+                                            <i class="bi bi-envelope me-2"></i> 
+                                            <a href="mailto:elena@example.com" class="text-decoration-none">elena@example.com</a>
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-globe me-2"></i> 
+                                            <a href="https://www.elenarodriguez.com" target="_blank" class="text-decoration-none">www.elenarodriguez.com</a>
+                                        </li>
+                                        <li>
+                                            <i class="bi bi-geo-alt me-2"></i> Barcelona, Spain
+                                        </li>
+                                    </ul>
+                                    <div class="social-links mt-3">
+                                        <a href="#" class="me-2 text-decoration-none"><i class="bi bi-instagram"></i></a>
+                                        <a href="#" class="me-2 text-decoration-none"><i class="bi bi-facebook"></i></a>
+                                        <a href="#" class="me-2 text-decoration-none"><i class="bi bi-twitter"></i></a>
+                                        <a href="#" class="text-decoration-none"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Representation</h4>
+                                    <p class="fw-bold mb-1">Galería Moderna</p>
+                                    <p class="mb-3">Barcelona, Spain</p>
+                                    
+                                    <p class="fw-bold mb-1">Contemporary Arts Gallery</p>
+                                    <p class="mb-3">London, UK</p>
+                                    
+                                    <p class="fw-bold mb-1">New Visions Art Space</p>
+                                    <p>New York, USA</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exhibitions Tab -->
+            <div class="tab-pane fade" id="exhibitions" role="tabpanel" aria-labelledby="exhibitions-tab">
+                <h3>Exhibition History</h3>
+                <div class="timeline">
+                    <!-- Solo Exhibitions -->
+                    <div class="mb-4">
+                        <h4>Solo Exhibitions</h4>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2023</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"Emotional Landscapes"</h5>
+                                        <p>Galería Moderna, Barcelona, Spain</p>
+                                        <p>A collection of 24 new works exploring the connection between natural environments and human emotions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2021</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"Vibrant Memories"</h5>
+                                        <p>Contemporary Arts Gallery, London, UK</p>
+                                        <p>An exploration of memory through color and abstract forms, featuring 18 paintings created over two years.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2019</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"Urban Reflections"</h5>
+                                        <p>New Visions Art Space, New York, USA</p>
+                                        <p>A series inspired by city life and architectural elements, presented in collaboration with the Urban Arts Initiative.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Group Exhibitions -->
+                    <div>
+                        <h4>Group Exhibitions</h4>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2022</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"Contemporary Visions"</h5>
+                                        <p>International Art Fair, Paris, France</p>
+                                        <p>Selected as one of 30 emerging artists showcasing innovative approaches to contemporary painting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2020</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"Color Theory"</h5>
+                                        <p>Modern Art Museum, Berlin, Germany</p>
+                                        <p>A curated exhibition exploring the psychological impact of color in contemporary art.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p class="timeline-date">2018</p>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="timeline-content">
+                                        <h5>"New Perspectives"</h5>
+                                        <p>Barcelona Contemporary Art Center, Spain</p>
+                                        <p>Annual exhibition featuring emerging Spanish artists pushing boundaries in various mediums.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Collections Tab -->
+            <div class="tab-pane fade" id="collections" role="tabpanel" aria-labelledby="collections-tab">
+                <h3>Collections</h3>
+                <p>Elena Rodriguez's work is held in the following public and private collections:</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h4>Public Collections</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Barcelona Museum of Contemporary Art, Spain</li>
+                            <li class="list-group-item">National Gallery of Modern Art, London, UK</li>
+                            <li class="list-group-item">Contemporary Art Foundation, New York, USA</li>
+                            <li class="list-group-item">European Collection of Modern Art, Paris, France</li>
+                            <li class="list-group-item">International Art Institute, Tokyo, Japan</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Private Collections</h4>
+                        <p>Elena's work is held in numerous private collections throughout Europe, North America, and Asia, including collections of:</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">The Bergman Family Collection, Sweden</li>
+                            <li class="list-group-item">The Martinez Contemporary Art Collection, Mexico</li>
+                            <li class="list-group-item">The Thompson Foundation, USA</li>
+                            <li class="list-group-item">The Chen Family Collection, Singapore</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Press Tab -->
+            <div class="tab-pane fade" id="press" role="tabpanel" aria-labelledby="press-tab">
+                <h3>Press & Publications</h3>
+                
+                <div class="press-items">
+                    <div class="press-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/placeholder.svg?height=150&width=200" alt="Art Magazine Cover" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-9">
+                                <h4>"The Emotional Power of Color: Elena Rodriguez's New Exhibition"</h4>
+                                <p class="text-muted">Art Today Magazine, June 2023</p>
+                                <p>"Rodriguez's latest collection demonstrates her masterful understanding of color theory and emotional resonance. Each canvas invites viewers into a world where color transcends mere visual pleasure to become a vehicle for profound emotional expression."</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Read Article</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="press-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/placeholder.svg?height=150&width=200" alt="Newspaper Article" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-9">
+                                <h4>"Rising Stars: 10 Contemporary Artists Redefining Abstract Art"</h4>
+                                <p class="text-muted">The Art Critic, March 2022</p>
+                                <p>"Among the new generation of abstract artists, Elena Rodriguez stands out for her bold approach to color and composition. Her work bridges the gap between traditional abstract expressionism and contemporary sensibilities, creating a visual language that feels both familiar and revolutionary."</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Read Article</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="press-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/placeholder.svg?height=150&width=200" alt="Interview Video" class="img-fluid rounded">
+                            </div>
+                            <div class="col-md-9">
+                                <h4>"Studio Visit: Elena Rodriguez Discusses Her Creative Process"</h4>
+                                <p class="text-muted">Contemporary Art Channel, October 2021</p>
+                                <p>In this in-depth interview, Elena opens up about her inspirations, techniques, and the personal experiences that inform her vibrant abstract paintings.</p>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Watch Interview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h3>ArtGallery</h3>
+                <p>Discover, buy, and sell art online. Connect with artists and art lovers from around the world.</p>
+                <div class="social-icons mt-3">
+                    <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="me-2"><i class="bi bi-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5>Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="browse.html">Browse Art</a></li>
+                    <li><a href="collections.html">Collections</a></li>
+                    <li><a href="artists.html">Artists</a></li>
+                    <li><a href="fairs.html">Art Fairs</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5>Services</h5>
+                <ul class="footer-links">
+                    <li><a href="advisor.html">Art Advisor</a></li>
+                    <li><a href="gift-cards.html">Gift Cards</a></li>
+                    <li><a href="referral.html">Referral Program</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h5>Support</h5>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                    <li><a href="returns.html">Returns</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="copyright text-center">
+                    <p>&copy; 2023 ArtGallery. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/artist-profile.js"></script>
+</body>
+</html>
