@@ -31,6 +31,11 @@
 
           <h1 class="fw-bold mt-3">Upload New Artwork</h1>
           <p class="text-muted">Share your latest creation with art enthusiasts around the world.</p>
+
+          <?php
+          include 'includes/msg.php';
+          ?>
+
         </div>
 
         <div class="row g-4">
@@ -44,7 +49,10 @@
               </li>
             </ul>
 
-            <form id="uploadForm">
+
+
+
+            <form id="uploadForm" action="back/handle_upload_artist.php" method="post" enctype="multipart/form-data">
               <div class="tab-content mt-4">
                 <div class="tab-pane fade show active" id="details" role="tabpanel">
                   <div class="card">
@@ -57,55 +65,54 @@
                         <div class="row g-3">
                           <div class="col-md-6">
                             <label for="title" class="form-label">Artwork Title <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="title" required>
+                            <input type="text" name="title" class="form-control" id="title" required>
                           </div>
                           <div class="col-md-6">
                             <label for="category" class="form-label">Category <span class="text-danger">*</span></label>
-                            <select class="form-select" id="category" required>
+                            <select class="form-select" name="category" id="category" required>
                               <option value="" selected disabled>Select category</option>
                               <option value="painting">Painting</option>
                               <option value="photography">Photography</option>
                               <option value="sculpture">Sculpture</option>
                               <option value="digital">Digital Art</option>
-                              <option value="drawing">Drawing</option>
+                              <option value="print">Print</option>
                               <option value="mixed-media">Mixed Media</option>
-                              <option value="collage">Collage</option>
                             </select>
                           </div>
                         </div>
                       </div>
 
                       <div class="mb-4">
-                        <label for="medium" class="form-label">Medium <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="medium" placeholder="e.g., Oil on Canvas, Digital Print, Bronze, etc." required>
+                        <label for="medium" class="form-label">Materials <span class="text-danger">*</span></label>
+                        <input type="text" name="materials" class="form-control" id="medium" placeholder="e.g., Oil on Canvas, Digital Print, Bronze, etc." required>
                       </div>
 
                       <div class="mb-4">
                         <label class="form-label">Dimensions <span class="text-danger">*</span></label>
                         <div class="row g-3">
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                             <label for="width" class="form-label small">Width (inches)</label>
-                            <input type="number" class="form-control" id="width" min="0" step="0.1" required>
+                            <input type="number" name="width" class="form-control" id="width" min="0" step="0.1" required>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-6">
                             <label for="height" class="form-label small">Height (inches)</label>
-                            <input type="number" class="form-control" id="height" min="0" step="0.1" required>
-                          </div>
-                          <div class="col-md-4">
-                            <label for="depth" class="form-label small">Depth (inches)</label>
-                            <input type="number" class="form-control" id="depth" min="0" step="0.1" placeholder="Optional">
+                            <input type="number" name="height" class="form-control" id="height" min="0" step="0.1" required>
                           </div>
                         </div>
                       </div>
 
                       <div class="row g-3 mb-4">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <label for="year" class="form-label">Year Created <span class="text-danger">*</span></label>
-                          <input type="number" class="form-control" id="year" min="1900" max="2023" required>
+                          <input type="number" name="year" class="form-control" id="year" min="1900" max="2025" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
+                          <label for="year" class="form-label">Quantity <span class="text-danger">*</span></label>
+                          <input type="number" name="quantity" class="form-control" id="year" min="1" max="5000" required>
+                        </div>
+                        <div class="col-md-4">
                           <label for="price" class="form-label">Price (USD) <span class="text-danger">*</span></label>
-                          <input type="number" class="form-control" id="price" min="0" step="0.01" required>
+                          <input type="number" name="price" class="form-control" id="price" min="0" step="0.1" required>
                         </div>
                       </div>
 
@@ -113,32 +120,9 @@
 
                       <div class="mb-4">
                         <label for="description" class="form-label">Artwork Description <span class="text-danger">*</span></label>
-                        <textarea class="form-control" id="description" rows="4" placeholder="Describe your artwork, including inspiration, techniques used, and the story behind it..." required></textarea>
+                        <textarea class="form-control" name="description" id="description" rows="4" placeholder="Describe your artwork, including inspiration, techniques used, and the story behind it..." required></textarea>
                       </div>
 
-                      <div class="mb-4">
-                        <label for="keywords" class="form-label">Keywords/Tags</label>
-                        <input type="text" class="form-control" id="keywords" placeholder="e.g., abstract, landscape, blue, nature (comma separated)">
-                        <div class="form-text">Add keywords to help collectors find your artwork</div>
-                      </div>
-
-                      <hr>
-
-                      <div class="mb-4">
-                        <h6 class="mb-3">Selling Options</h6>
-                        <div class="form-check mb-2">
-                          <input class="form-check-input" type="checkbox" id="isForSale" checked>
-                          <label class="form-check-label" for="isForSale">
-                            This artwork is for sale
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="checkbox" id="allowPrints">
-                          <label class="form-check-label" for="allowPrints">
-                            Allow prints and reproductions
-                          </label>
-                        </div>
-                      </div>
                     </div>
                     <div class="card-footer bg-white d-flex justify-content-between">
                       <button type="button" class="btn btn-outline-secondary" onclick="history.back()">Cancel</button>
@@ -158,17 +142,10 @@
                         <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
                         <h5 class="mt-3">Drag and drop your images</h5>
                         <p class="text-muted small mb-4">or click to browse (JPG, PNG, WEBP, max 10MB each)</p>
-                        <input type="file" id="artwork-images" class="d-none" accept="image/*" multiple>
+                        <input type="file" name="image" class="d-none" id="artwork-images" accept="image/*" required>
                         <button type="button" class="btn btn-outline-primary" onclick="document.getElementById('artwork-images').click()">
                           <i class="bi bi-upload me-2"></i> Select Images
                         </button>
-                      </div>
-
-                      <div id="uploaded-images" class="mb-4 d-none">
-                        <h6 class="mb-3">Uploaded Images</h6>
-                        <div class="row g-3" id="image-preview-container">
-                          <!-- Image previews will be added here via JavaScript -->
-                        </div>
                       </div>
 
                       <div class="bg-light rounded-3 p-3">
@@ -186,15 +163,21 @@
                           </div>
                         </div>
                       </div>
+
                     </div>
+
                     <div class="card-footer bg-white d-flex justify-content-between">
                       <button type="button" class="btn btn-outline-secondary" onclick="switchToDetailsTab()">Back to Details</button>
-                      <button type="submit" class="btn btn-primary">Submit Artwork</button>
+                      <button type="submit" name="submit" class="btn btn-primary">Submit Artwork</button>
                     </div>
+
                   </div>
                 </div>
               </div>
             </form>
+
+
+
           </div>
 
           <div class="col-lg-4">
@@ -257,109 +240,104 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Toggle sidebar on mobile
-    document.addEventListener('DOMContentLoaded', function() {
-      const sidebarToggle = document.getElementById('sidebarToggle');
-      const sidebar = document.querySelector('.sidebar');
 
-      if (sidebarToggle) {
-        sidebarToggle.addEventListener('click', function() {
-          sidebar.classList.toggle('show');
-        });
+<script>
+  // Toggle sidebar on mobile
+  document.addEventListener('DOMContentLoaded', function () {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (sidebarToggle) {
+      sidebarToggle.addEventListener('click', function () {
+        sidebar.classList.toggle('show');
+      });
+    }
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', function (event) {
+      const isClickInsideSidebar = sidebar.contains(event.target);
+      const isClickOnToggle = sidebarToggle && sidebarToggle.contains(event.target);
+
+      if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('show')) {
+        sidebar.classList.remove('show');
       }
-
-      // Close sidebar when clicking outside on mobile
-      document.addEventListener('click', function(event) {
-        const isClickInsideSidebar = sidebar.contains(event.target);
-        const isClickOnToggle = sidebarToggle && sidebarToggle.contains(event.target);
-
-        if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains('show')) {
-          sidebar.classList.remove('show');
-        }
-      });
-
-      // Handle file uploads
-      const fileInput = document.getElementById('artwork-images');
-      const previewContainer = document.getElementById('image-preview-container');
-      const uploadedImagesSection = document.getElementById('uploaded-images');
-
-      fileInput.addEventListener('change', function() {
-        if (this.files.length > 0) {
-          uploadedImagesSection.classList.remove('d-none');
-          previewContainer.innerHTML = '';
-
-          Array.from(this.files).forEach((file, index) => {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-              const col = document.createElement('div');
-              col.className = 'col-4';
-
-              const imageContainer = document.createElement('div');
-              imageContainer.className = 'position-relative border rounded overflow-hidden';
-              imageContainer.style.aspectRatio = '1';
-
-              const img = document.createElement('img');
-              img.src = e.target.result;
-              img.className = 'w-100 h-100 object-fit-cover';
-              img.alt = 'Artwork preview';
-
-              const removeBtn = document.createElement('button');
-              removeBtn.className = 'btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle';
-              removeBtn.innerHTML = '&times;';
-              removeBtn.style.width = '24px';
-              removeBtn.style.height = '24px';
-              removeBtn.style.padding = '0';
-              removeBtn.style.lineHeight = '24px';
-              removeBtn.setAttribute('type', 'button');
-              removeBtn.addEventListener('click', function() {
-                col.remove();
-                if (previewContainer.children.length === 0) {
-                  uploadedImagesSection.classList.add('d-none');
-                }
-              });
-
-              if (index === 0) {
-                const primaryBadge = document.createElement('div');
-                primaryBadge.className = 'position-absolute bottom-0 start-0 end-0 bg-primary text-white text-center py-1 small';
-                primaryBadge.textContent = 'Primary Image';
-                imageContainer.appendChild(primaryBadge);
-              }
-
-              imageContainer.appendChild(img);
-              imageContainer.appendChild(removeBtn);
-              col.appendChild(imageContainer);
-              previewContainer.appendChild(col);
-            };
-            reader.readAsDataURL(file);
-          });
-        }
-      });
-
-      // Form submission
-      const uploadForm = document.getElementById('uploadForm');
-      uploadForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        // In a real app, you would send this data to your backend
-        window.location.href = 'artist-upload-success.html';
-      });
     });
 
-    // Tab navigation functions
-    function switchToImagesTab() {
-      const imagesTab = document.getElementById('images-tab');
-      bootstrap.Tab.getOrCreateInstance(imagesTab).show();
-    }
+    // Handle file uploads (preview only)
+    const fileInput = document.getElementById('artwork-images');
+    const previewContainer = document.getElementById('image-preview-container');
+    const uploadedImagesSection = document.getElementById('uploaded-images');
 
-    function switchToDetailsTab() {
-      const detailsTab = document.getElementById('details-tab');
-      bootstrap.Tab.getOrCreateInstance(detailsTab).show();
-    }
-  </script>
+    fileInput.addEventListener('change', function () {
+      if (this.files.length > 0) {
+        uploadedImagesSection.classList.remove('d-none');
+        previewContainer.innerHTML = '';
+
+        Array.from(this.files).forEach((file, index) => {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const col = document.createElement('div');
+            col.className = 'col-4';
+
+            const imageContainer = document.createElement('div');
+            imageContainer.className = 'position-relative border rounded overflow-hidden';
+            imageContainer.style.aspectRatio = '1';
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'w-100 h-100 object-fit-cover';
+            img.alt = 'Artwork preview';
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'btn btn-sm btn-danger position-absolute top-0 end-0 m-1 rounded-circle';
+            removeBtn.innerHTML = '&times;';
+            removeBtn.style.width = '24px';
+            removeBtn.style.height = '24px';
+            removeBtn.style.padding = '0';
+            removeBtn.style.lineHeight = '24px';
+            removeBtn.setAttribute('type', 'button');
+            removeBtn.addEventListener('click', function () {
+              col.remove();
+              if (previewContainer.children.length === 0) {
+                uploadedImagesSection.classList.add('d-none');
+              }
+            });
+
+            if (index === 0) {
+              const primaryBadge = document.createElement('div');
+              primaryBadge.className = 'position-absolute bottom-0 start-0 end-0 bg-primary text-white text-center py-1 small';
+              primaryBadge.textContent = 'Primary Image';
+              imageContainer.appendChild(primaryBadge);
+            }
+
+            imageContainer.appendChild(img);
+            imageContainer.appendChild(removeBtn);
+            col.appendChild(imageContainer);
+            previewContainer.appendChild(col);
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    });
+
+  });
+
+  // Tab navigation functions
+  function switchToImagesTab() {
+    const imagesTab = document.getElementById('images-tab');
+    bootstrap.Tab.getOrCreateInstance(imagesTab).show();
+  }
+
+  function switchToDetailsTab() {
+    const detailsTab = document.getElementById('details-tab');
+    bootstrap.Tab.getOrCreateInstance(detailsTab).show();
+  }
+</script>
+
 </body>
 
 </html>

@@ -215,6 +215,8 @@ class Visitor extends User
 class Artist extends User
 {
 
+
+
     public static function register($name, $email, $password, $role)
     {
         require_once('../includes/conn.php');
@@ -235,6 +237,25 @@ class Artist extends User
             return false;
         }
     }
+
+
+
+    public function AddArtwork($publisherId, $title, $name, $category, $price, $quantity, $description, $year, $width, $height, $materials, $mainImage)
+    {
+        require_once('../includes/conn.php');
+        $addArtwork = "INSERT INTO `artworks` (`publisher_id`, `title`, `artist_name`, `category`, `price`, `quantity`, `description`, `year_created`, `width`, `height`, `materials`, `main_image`)
+                        VALUES ('$publisherId', '$title', '$name', '$category', '$price', '$quantity', '$description', '$year', '$width', '$height', '$materials', '$mainImage')";
+
+        $addArtworkResult = mysqli_query($conn, $addArtwork);
+        return $addArtworkResult;
+    }
+
+
+
+
+
+
+
 }
 
 

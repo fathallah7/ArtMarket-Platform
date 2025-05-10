@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
                 exit();
             }
             else {
-                header("Location: ../pages/index.php");
+                header("Location: ../artist/artist-dashboard.php");
                 exit();
             }
         }

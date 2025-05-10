@@ -10,10 +10,10 @@ session_start();
          </a>
          <div class="text-center mb-3">
             <div class="avatar-container mb-2">
-               <img src="https://via.placeholder.com/64" alt="User" class="rounded-circle" width="64" height="64">
+               <img src="" alt="User" class="rounded-circle" width="64" height="64">
             </div>
-            <p class="mb-0 fw-medium">Elena Rodriguez</p>
-            <small class="text-muted">Artist</small>
+            <p class="mb-0 fw-medium"><?php echo $_SESSION['name'] ?></p>
+            <small class="text-muted"><?php echo $_SESSION['user_role'] ?></small>
          </div>
       </div>
       <ul class="nav flex-column p-3">
@@ -75,8 +75,6 @@ session_start();
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <li><a class="dropdown-item" href="#">My Profile</a></li>
                         <li><a class="dropdown-item active" href="artist-artworks.php">My Artworks</a></li>
-                        <!-- <li><a class="dropdown-item" href="artist-gallery.html">My Gallery</a></li> -->
-                        <!-- <li><a class="dropdown-item" href="artist-virtual-gallery.html">Virtual Gallery</a></li> -->
                         <li><a class="dropdown-item" href="artist-register-fair.php">Register for Fairs</a></li>
                         <li>
                            <hr class="dropdown-divider">

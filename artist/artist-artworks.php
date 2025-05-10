@@ -8,12 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <style>
+        
+    </style>
 </head>
 
 <body>
 
     <?php
     include 'includes/header.php';
+    include 'includes/conn.php';
     ?>
 
 
@@ -38,7 +43,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="d-flex align-items-center">
-                            <h3 class="mb-0 me-3">Your Artworks (24)</h3>
+                            <h3 class="mb-0 me-3">Your Artworks</h3>
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadArtworkModal">
                                 <i class="bi bi-plus-lg me-2"></i> Upload New
                             </button>
@@ -66,221 +71,39 @@
 
             <!-- Artwork Grid -->
             <div class="row g-4">
-                <!-- Artwork 1 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Abstract Composition" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
+                <?php
+                $publisher_id = $_SESSION['user_id'];
+                $sql = "SELECT * FROM artworks WHERE publisher_id = $publisher_id";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                    <div class="col-md-3">
+                        <div class="artwork-card shadow-sm rounded-4 overflow-hidden bg-white">
+                            <div class="artwork-image position-relative">
+                                <img src="../admin/back/<?php echo $row['main_image'] ?>" alt="Artwork" width="500px">
+                                <div class="artwork-actions position-absolute top-0 end-0 p-2 d-flex gap-1">
+                                    <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
+                                        <i class="bi bi-pencil text-primary"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Delete Artwork">
+                                        <i class="bi bi-trash text-danger"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="artwork-status for-sale">For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Abstract Composition</h4>
-                            <p class="medium">Acrylic on Canvas, 36 × 48 in</p>
-                            <p class="price">$1,200</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: May 15, 2023</span>
-                                <span class="text-success small">3 views this week</span>
+                            <div class="artwork-info p-3">
+                                <h5 class="fw-semibold mb-1"><?php echo $row['title'] ?></h5>
+                                <p class="text-muted mb-1"><?php echo $row['materials'] ?></p>
+                                <p class="text-dark fw-medium mb-2"><?php echo $row['width'] . " x " . $row['height'] ?></p>
+                                <div class="text-end">
+                                    <small class="text-muted"><?php echo $row['created_at'] ?></small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Artwork 2 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Urban Landscape" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status sold">Sold</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Urban Landscape</h4>
-                            <p class="medium">Oil on Canvas, 24 × 36 in</p>
-                            <p class="price">$950 (Sold)</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: Apr 10, 2023</span>
-                                <span class="text-success small">5 views this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 3 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Portrait Study" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status for-sale">For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Portrait Study</h4>
-                            <p class="medium">Charcoal on Paper, 18 × 24 in</p>
-                            <p class="price">$450</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: Jun 5, 2023</span>
-                                <span class="text-success small">2 views this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 4 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Nature Series #1" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status not-for-sale">Not For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Nature Series #1</h4>
-                            <p class="medium">Watercolor on Paper, 12 × 16 in</p>
-                            <p class="price">Not For Sale</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: Mar 20, 2023</span>
-                                <span class="text-success small">1 view this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 5 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Geometric Forms" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status for-sale">For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Geometric Forms</h4>
-                            <p class="medium">Digital Print, 20 × 20 in</p>
-                            <p class="price">$350</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: May 30, 2023</span>
-                                <span class="text-success small">4 views this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 6 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Color Study" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status draft">Draft</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Color Study</h4>
-                            <p class="medium">Mixed Media, 16 × 20 in</p>
-                            <p class="price">Draft</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: Jun 15, 2023</span>
-                                <span class="text-muted small">Not published</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 7 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Seascape" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status for-sale">For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Seascape</h4>
-                            <p class="medium">Oil on Canvas, 30 × 40 in</p>
-                            <p class="price">$1,500</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: Apr 25, 2023</span>
-                                <span class="text-success small">6 views this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Artwork 8 -->
-                <div class="col-md-3">
-                    <div class="artwork-card">
-                        <div class="artwork-image">
-                            <img src="/placeholder.svg?height=300&width=300" alt="Minimalist Composition" class="img-fluid rounded">
-                            <div class="artwork-actions">
-                                <button class="btn-edit" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button class="btn-delete" title="Delete Artwork">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </div>
-                            <div class="artwork-status for-sale">For Sale</div>
-                        </div>
-                        <div class="artwork-info mt-3">
-                            <h4>Minimalist Composition</h4>
-                            <p class="medium">Acrylic on Canvas, 24 × 24 in</p>
-                            <p class="price">$800</p>
-                            <div class="d-flex justify-content-between">
-                                <span class="text-muted small">Uploaded: May 5, 2023</span>
-                                <span class="text-success small">2 views this week</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
 
             <!-- Pagination -->
@@ -346,245 +169,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row mt-5">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="mb-0">Most Popular Artworks</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Artwork</th>
-                                            <th>Views</th>
-                                            <th>Favorites</th>
-                                            <th>Conversion Rate</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Urban Landscape</td>
-                                            <td>78</td>
-                                            <td>24</td>
-                                            <td>3.8%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Abstract Composition</td>
-                                            <td>65</td>
-                                            <td>18</td>
-                                            <td>2.9%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Seascape</td>
-                                            <td>52</td>
-                                            <td>15</td>
-                                            <td>2.5%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Geometric Forms</td>
-                                            <td>45</td>
-                                            <td>12</td>
-                                            <td>2.2%</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Portrait Study</td>
-                                            <td>38</td>
-                                            <td>9</td>
-                                            <td>1.8%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h3>ArtGallery</h3>
-                    <p>Discover, buy, and sell art online. Connect with artists and art lovers from around the world.</p>
-                    <div class="social-icons mt-3">
-                        <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
-                        <a href="#" class="me-2"><i class="bi bi-pinterest"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h5>Explore</h5>
-                    <ul class="footer-links">
-                        <li><a href="browse.html">Browse Art</a></li>
-                        <li><a href="collections.html">Collections</a></li>
-                        <li><a href="artists.html">Artists</a></li>
-                        <li><a href="art-fairs.html">Art Fairs</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h5>Services</h5>
-                    <ul class="footer-links">
-                        <li><a href="customer-request-advisor.html">Art Advisor</a></li>
-                        <li><a href="gift-cards.html">Gift Cards</a></li>
-                        <li><a href="referral.html">Referral Program</a></li>
-                        <li><a href="feedback.html">Feedback</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-4">
-                    <h5>Support</h5>
-                    <ul class="footer-links">
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="shipping.html">Shipping</a></li>
-                        <li><a href="returns.html">Returns</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row mt-4">
-                <div class="col-12">
-                    <div class="copyright text-center">
-                        <p>&copy; 2023 ArtGallery. All rights reserved.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Upload Artwork Modal -->
-    <div class="modal fade" id="uploadArtworkModal" tabindex="-1" aria-labelledby="uploadArtworkModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="uploadArtworkModalLabel">Upload New Artwork</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="uploadArtworkForm">
-                        <div class="mb-4">
-                            <h5>Artwork Images</h5>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="mainImage" class="form-label">Main Image</label>
-                                    <input class="form-control" type="file" id="mainImage" accept="image/*" required>
-                                    <div class="form-text">This will be the primary image shown to buyers.</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="additionalImages" class="form-label">Additional Images (Optional)</label>
-                                    <input class="form-control" type="file" id="additionalImages" accept="image/*" multiple>
-                                    <div class="form-text">You can upload up to 5 additional images.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <h5>Artwork Details</h5>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="artworkTitle" class="form-label">Title</label>
-                                    <input type="text" class="form-control" id="artworkTitle" placeholder="Enter artwork title" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkYear" class="form-label">Year Created</label>
-                                    <input type="number" class="form-control" id="artworkYear" placeholder="YYYY" min="1900" max="2023" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkMedium" class="form-label">Medium</label>
-                                    <input type="text" class="form-control" id="artworkMedium" placeholder="e.g., Oil on Canvas" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkCategory" class="form-label">Category</label>
-                                    <select class="form-select" id="artworkCategory" required>
-                                        <option value="" selected disabled>Select category</option>
-                                        <option value="painting">Painting</option>
-                                        <option value="drawing">Drawing</option>
-                                        <option value="photography">Photography</option>
-                                        <option value="sculpture">Sculpture</option>
-                                        <option value="printmaking">Printmaking</option>
-                                        <option value="digital">Digital Art</option>
-                                        <option value="mixed">Mixed Media</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="artworkWidth" class="form-label">Width (inches)</label>
-                                    <input type="number" class="form-control" id="artworkWidth" placeholder="Width" min="1" step="0.1" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="artworkHeight" class="form-label">Height (inches)</label>
-                                    <input type="number" class="form-control" id="artworkHeight" placeholder="Height" min="1" step="0.1" required>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="artworkDepth" class="form-label">Depth (inches, if applicable)</label>
-                                    <input type="number" class="form-control" id="artworkDepth" placeholder="Depth" min="0" step="0.1">
-                                </div>
-                                <div class="col-12">
-                                    <label for="artworkDescription" class="form-label">Description</label>
-                                    <textarea class="form-control" id="artworkDescription" rows="4" placeholder="Describe your artwork..." required></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <h5>Pricing & Availability</h5>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label for="artworkStatus" class="form-label">Status</label>
-                                    <select class="form-select" id="artworkStatus" required>
-                                        <option value="" selected disabled>Select status</option>
-                                        <option value="for-sale">For Sale</option>
-                                        <option value="not-for-sale">Not For Sale</option>
-                                        <option value="draft">Save as Draft</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkPrice" class="form-label">Price ($)</label>
-                                    <input type="number" class="form-control" id="artworkPrice" placeholder="Enter price" min="1" step="0.01">
-                                    <div class="form-text">Required if status is "For Sale".</div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkEdition" class="form-label">Edition (if applicable)</label>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" id="artworkEditionNumber" placeholder="Number" min="1">
-                                        <span class="input-group-text">of</span>
-                                        <input type="number" class="form-control" id="artworkEditionTotal" placeholder="Total" min="1">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="artworkFramed" class="form-label">Framing</label>
-                                    <select class="form-select" id="artworkFramed">
-                                        <option value="" selected disabled>Select option</option>
-                                        <option value="framed">Framed</option>
-                                        <option value="unframed">Unframed</option>
-                                        <option value="not-applicable">Not Applicable</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <h5>Keywords & Tags</h5>
-                            <div class="mb-3">
-                                <label for="artworkKeywords" class="form-label">Keywords (Separate with commas)</label>
-                                <input type="text" class="form-control" id="artworkKeywords" placeholder="e.g., abstract, blue, landscape, modern">
-                                <div class="form-text">Keywords help buyers find your artwork.</div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="saveArtworkBtn">Upload Artwork</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Edit Artwork Modal -->
     <div class="modal fade" id="editArtworkModal" tabindex="-1" aria-labelledby="editArtworkModalLabel" aria-hidden="true">

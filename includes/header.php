@@ -69,36 +69,6 @@ include '../includes/conn.php';
                 </ul>
 
 
-
-            <?php elseif (isset($_SESSION['user']) && $_SESSION['user_role'] == 'artist'): ?>
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link nav-icon position-relative" href="favorites.php">
-                            <i class="bi bi-heart"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-icon position-relative" href="cart.php">
-                            <i class="bi bi-bag"></i>
-                            <span class="cart-count">3</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                            <img src="../back/<?php echo $_SESSION['user_image'] ?>" alt="Profile" class="rounded-circle" width="32" height="32">
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="customer-dashboard.php">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="../back/handle_logout.php">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-
-
             <?php else: ?>
                 <ul class="navbar-nav">
                     <li class="nav-item">
