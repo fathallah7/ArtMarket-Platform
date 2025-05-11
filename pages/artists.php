@@ -43,7 +43,7 @@
             <!-- Search and Filter -->
             <div class="artist-filters mb-4">
                 <div class="row g-3">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search artists by name">
                             <button class="btn btn-outline-primary" type="button">
@@ -51,17 +51,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <select class="form-select">
-                            <option selected>Filter by Medium</option>
-                            <option>Painting</option>
-                            <option>Photography</option>
-                            <option>Sculpture</option>
-                            <option>Digital Art</option>
-                            <option>Mixed Media</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <select class="form-select">
                             <option selected>Sort by</option>
                             <option>Name: A-Z</option>

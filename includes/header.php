@@ -29,6 +29,9 @@ include '../includes/conn.php';
                     <a class="nav-link" href="art-fairs.php">Art Fairs</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="gift-cards.php">Gift Card</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="feedback.php">Feedback</a>
                 </li>
             </ul>

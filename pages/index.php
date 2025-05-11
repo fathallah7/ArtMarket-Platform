@@ -28,8 +28,8 @@
                     <h1 class="display-4 fw-bold mb-4">Discover Unique Artworks</h1>
                     <p class="lead mb-4">Explore our curated collection of original paintings, photography, sculpture, and more from talented artists around the world.</p>
                     <div class="d-flex flex-wrap gap-2">
-                        <a href="explore.html" class="btn btn-primary">Explore Gallery</a>
-                        <a href="customer-request-advisor.html" class="btn btn-outline-primary">Get Personalized Recommendations</a>
+                        <a href="explore.php" class="btn btn-primary">Explore Gallery</a>
+                        <a href="#" class="btn btn-outline-primary">Get Personalized Recommendations</a>
                     </div>
                 </div>
                 <div class="col-lg-6 mt-5 mt-lg-0">
@@ -55,7 +55,7 @@
                                     <p class="text-muted small mb-0">Explore our curated collection</p>
                                 </div>
                             </div>
-                            <a href="explore.html" class="stretched-link"></a>
+                            <a href="explore.php" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                                     <p class="text-muted small mb-0">Get personalized recommendations</p>
                                 </div>
                             </div>
-                            <a href="customer-request-advisor.html" class="stretched-link"></a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                                     <p class="text-muted small mb-0">Visualize art in your space</p>
                                 </div>
                             </div>
-                            <a href="view-in-room.html" class="stretched-link"></a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
 
 
     <!-- Collections -->
-    <section class="py-5">
+    <!-- <section class="py-5">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-12">
@@ -166,10 +166,10 @@
                 </div>
             </div>
             <div class="tab-content" id="collectionsTabContent">
-                <!-- Collections Tab -->
+
                 <div class="tab-pane fade show active" id="collections-content" role="tabpanel" aria-labelledby="collections-tab">
                     <div class="row g-4">
-                        <!-- Collection 1 -->
+
                         <div class="col-md-4">
                             <div class="card collection-card border-0 shadow-sm">
                                 <div class="collection-image">
@@ -188,7 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Collection 2 -->
+
                         <div class="col-md-4">
                             <div class="card collection-card border-0 shadow-sm">
                                 <div class="collection-image">
@@ -207,7 +207,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Collection 3 -->
+
                         <div class="col-md-4">
                             <div class="card collection-card border-0 shadow-sm">
                                 <div class="collection-image">
@@ -228,10 +228,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Fairs Tab -->
+
                 <div class="tab-pane fade" id="fairs-content" role="tabpanel" aria-labelledby="fairs-tab">
                     <div class="row g-4">
-                        <!-- Fair 1 -->
+
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm">
                                 <div class="row g-0">
@@ -253,7 +253,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Fair 2 -->
+
                         <div class="col-md-6">
                             <div class="card border-0 shadow-sm">
                                 <div class="row g-0">
@@ -285,7 +285,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Art Advisor CTA -->
     <section class="py-5 bg-light">

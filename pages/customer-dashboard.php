@@ -37,7 +37,7 @@
                     </a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="gift-cards.html" class="nav-link">
+                    <a href="gift-cards.php" class="nav-link">
                         <i class="bi bi-gift me-2"></i> Gift Cards
                     </a>
                 </li>

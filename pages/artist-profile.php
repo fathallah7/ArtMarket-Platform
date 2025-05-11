@@ -44,19 +44,13 @@
                                                         echo "<h3 class='mb-0'>$count</h3>";
                                                         ?></p>
                         </div>
-                        <div>
-                            <small class="text-muted">Exhibitions</small>
-                            <p class="mb-0 fw-bold">12</p>
-                        </div>
-
                     </div>
                     <div class="d-flex gap-2">
-                        <button class="btn btn-outline-primary">
-                            <i class="bi bi-share me-2"></i> Share
-                        </button>
-                        <button class="btn btn-outline-primary">
-                            <i class="bi bi-envelope me-2"></i> Contact
-                        </button>
+                        <a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=<?php echo $row['email']; ?>">
+                            <button class="btn btn-outline-primary">
+                                <i class="bi bi-envelope me-2"></i> Contact
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -73,9 +67,6 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="false">About</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="exhibitions-tab" data-bs-toggle="tab" data-bs-target="#exhibitions" type="button" role="tab" aria-controls="exhibitions" aria-selected="false">Exhibitions</button>
-                </li>
             </ul>
             <div class="tab-content py-4" id="artistTabsContent">
                 <!-- Artworks Tab -->
@@ -83,7 +74,7 @@
 
                     <div class="artwork-filters mb-4">
                         <div class="row g-3">
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search artworks">
                                     <button class="btn btn-outline-primary" type="button">
@@ -91,16 +82,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select">
-                                    <option selected>Filter by Medium</option>
-                                    <option>Acrylic</option>
-                                    <option>Oil</option>
-                                    <option>Mixed Media</option>
-                                    <option>Watercolor</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <select class="form-select">
                                     <option selected>Sort by</option>
                                     <option>Newest</option>
@@ -207,58 +189,6 @@
 
                                         <p class="fw-bold mb-1">New Visions Art Space</p>
                                         <p>New York, USA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exhibitions Tab -->
-                <div class="tab-pane fade" id="exhibitions" role="tabpanel" aria-labelledby="exhibitions-tab">
-                    <h3>Exhibition History</h3>
-                    <div class="timeline">
-                        <!-- Solo Exhibitions -->
-                        <div class="mb-4">
-                            <div class="timeline-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="timeline-date">2023</p>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="timeline-content">
-                                            <h5>"Emotional Landscapes"</h5>
-                                            <p>Galería Moderna, Barcelona, Spain</p>
-                                            <p>A collection of 24 new works exploring the connection between natural environments and human emotions.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="timeline-date">2021</p>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="timeline-content">
-                                            <h5>"Vibrant Memories"</h5>
-                                            <p>Contemporary Arts Gallery, London, UK</p>
-                                            <p>An exploration of memory through color and abstract forms, featuring 18 paintings created over two years.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <p class="timeline-date">2019</p>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="timeline-content">
-                                            <h5>"Urban Reflections"</h5>
-                                            <p>New Visions Art Space, New York, USA</p>
-                                            <p>A series inspired by city life and architectural elements, presented in collaboration with the Urban Arts Initiative.</p>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

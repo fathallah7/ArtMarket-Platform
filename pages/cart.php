@@ -118,7 +118,13 @@
 
                                 <!-- Checkout Button -->
                                 <div class="d-grid">
-                                    <a href="#" class="btn btn-primary btn-lg">Proceed to Checkout</a>
+                                    <form action="../back/handle_checkout.php" method="post">
+                                        <input type="hidden" name="total" value="<?php echo $total; ?>">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary btn-lg">Proceed to Checkout</button>
+                                        </div>
+                                    </form>
+
                                 </div>
 
                                 <!-- Payment Options -->
