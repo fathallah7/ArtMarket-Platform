@@ -26,6 +26,10 @@
         <div class="main-content p-4 bg-light">
             <div class="container-fluid">
 
+                <?php
+                include 'includes/msg.php';
+                ?>
+
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center">
@@ -134,33 +138,26 @@
                             <table class="table table-hover">
                                 <thead class="table-light">
                                     <tr>
-                                        <th>Artwork</th>
                                         <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Quantity</th>
-                                        <th>Price $</th>
+                                        <th>Fair ID</th>
+                                        <th>Arist Id</th>
+                                        <th>Joined At</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT * FROM fairs_artist";
-                                    $result = mysqli_query($conn, $sql);
-                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    $sqlAA = "SELECT * FROM fairs_artists";
+                                    $result = mysqli_query($conn, $sqlAA);
+                                    while ($rowAA = mysqli_fetch_assoc($result)) {
                                     ?>
                                         <tr>
+                                            <td><?php echo $rowAA['id'] ?></td>
+                                            <td><?php echo $rowAA['fairs_id'] ?></td>
+                                            <td><?php echo $rowAA['artist_id'] ?></td>
+                                            <td><?php echo $rowAA['joined_at'] ?></td>
                                             <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="back/<?php echo $row['image'] ?>" class="me-2" alt="Artwork" width="50px">
-                                                    <div><?php echo $row['title'] ?></div>
-                                                </div>
-                                            </td>
-                                            <td><?php echo $row['id'] ?></td>
-                                            <td><?php echo $row['title'] ?></td>
-                                            <td><?php echo $row['fair_date'] ?></td>
-                                            <td><?php echo $row['price'] . " $" ?></td>
-                                            <td>
-                                                <a class="dropdown-item text-danger" href="back/handle_add_fairs.php?id_delete_TT=<?php echo $rowTT['id']; ?>">Delete</a>
+                                                <a class="dropdown-item text-danger" href="back/handle_add_fairs.php?id_delete_AA=<?php echo $rowAA['id']; ?>">Delete</a>
                                             </td>
                                         </tr>
                                     <?php

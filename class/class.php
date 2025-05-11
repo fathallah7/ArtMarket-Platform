@@ -207,7 +207,7 @@ class Visitor extends User
         return $FairsResult;
     }
 
-
+    // ##########################################################################
 
 
     // ##########################################################################
@@ -225,6 +225,7 @@ class Artist extends User
 {
 
 
+    // ##########################################################################
 
     public static function register($name, $email, $password, $role)
     {
@@ -260,6 +261,7 @@ class Artist extends User
     }
 
 
+    // ##########################################################################
 
     public function AddArtwork($publisherId, $title, $name, $category, $price, $quantity, $description, $year, $width, $height, $materials, $mainImage)
     {
@@ -289,6 +291,27 @@ class Artist extends User
         $showArtskResult = mysqli_query($conn, $showArts);
         return $showArtskResult;
     }
+
+
+
+    // ##########################################################################
+
+
+
+    public function FairsReg($fair_id, $artist_id)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $fairsReg = "INSERT INTO `fairs_artists`(`fairs_id`, `artist_id` )
+                                VALUES ('$fair_id','$artist_id')";
+        $fairsRegResult = mysqli_query($conn, $fairsReg);
+        return $fairsRegResult;
+    }
+
+
+
+
+
 }
 
 
@@ -351,8 +374,6 @@ class Admin extends User
     // ##########################################################################
 
 
-
-
     public function createFairs($title, $desc, $date, $location, $price, $image)
     {
         global $conn;
@@ -373,5 +394,29 @@ class Admin extends User
         $FairDelete = mysqli_query($conn, $delete);
         return $FairDelete;
     }
+
+    public function DeleteFairsTeckets($id)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $delete = " DELETE FROM `fairs_tickets` WHERE `id` = $id ";
+        $FairDeleteTec = mysqli_query($conn, $delete);
+        return $FairDeleteTec;
+    }
+
+    public function DeleteFairsArtists($id)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $delete = " DELETE FROM `fairs_artists` WHERE `id` = $id ";
+        $FairDeleteArt = mysqli_query($conn, $delete);
+        return $FairDeleteArt;
+    }
+
+        // ##########################################################################
+
+
+
+
 
 }

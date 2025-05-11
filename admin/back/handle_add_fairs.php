@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
 
 
-// Delete Art
+// Delete Fairs
 
 if (isset($_GET['id_delete'])) {
     $id = $_GET['id_delete'];
@@ -50,6 +50,47 @@ if (isset($_GET['id_delete'])) {
 
     if ($deleted) {
         $_SESSION['msg'] = "An Fair Deleted";
+        header("Location:../admin-fairs.php");
+        exit();
+    } else {
+        $_SESSION['error'] = "An Error";
+        header("Location:../admin-fairs.php");
+        exit();
+    }
+}
+
+
+//  Delete Teckets
+
+if (isset($_GET['id_delete_TT'])) {
+    $id_tecket = $_GET['id_delete_TT'];
+
+    $artistTe = new Admin();
+    $delTe = $artistTe->DeleteFairsTeckets($id_tecket);
+
+    if ($delTe) {
+        $_SESSION['msg'] = "You Deleted a Tecket";
+        header("Location:../admin-fairs.php");
+        exit();
+    } else {
+        $_SESSION['error'] = "An Error";
+        header("Location:../admin-fairs.php");
+        exit();
+    }
+}
+
+
+
+//  Delete fairs Artits
+
+if (isset($_GET['id_delete_AA'])) {
+    $id_AA = $_GET['id_delete_AA'];
+
+    $artistAA = new Admin();
+    $delAA = $artistAA->DeleteFairsArtists($id_AA);
+
+    if ($delAA) {
+        $_SESSION['msg'] = "You Deleted an Artist";
         header("Location:../admin-fairs.php");
         exit();
     } else {
