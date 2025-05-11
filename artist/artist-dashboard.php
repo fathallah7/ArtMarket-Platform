@@ -107,7 +107,7 @@
       <div class="col-lg-8">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="fw-bold">Recent Artworks</h2>
-          <a href="artist-artworks.html" class="btn btn-link text-decoration-none">
+          <a href="artist-artworks.php" class="btn btn-link text-decoration-none">
             View All <i class="bi bi-arrow-right"></i>
           </a>
         </div>
@@ -206,60 +206,17 @@
           </div>
           <div class="card-body">
             <div class="d-grid gap-3">
-              <a href="artist-upload.html" class="btn btn-primary">
+              <a href="artist-upload.php" class="btn btn-primary">
                 <i class="bi bi-file-earmark-arrow-up me-2"></i> Upload New Artwork
               </a>
-              <a href="artist-gallery.html" class="btn btn-outline-primary">
-                <i class="bi bi-grid-3x3 me-2"></i> Manage Virtual Gallery
-              </a>
-              <a href="artist-register-fair.html" class="btn btn-outline-primary">
+              <a href="artist-register-fair.php" class="btn btn-outline-primary">
                 <i class="bi bi-people me-2"></i> Register for Art Fair
               </a>
             </div>
           </div>
         </div>
 
-        <div class="card mb-4">
-          <div class="card-header bg-white">
-            <h5 class="card-title mb-0">Performance Overview</h5>
-            <p class="card-text small text-muted">Last 30 days</p>
-          </div>
-          <div class="card-body">
-            <div class="mb-4">
-              <div class="d-flex justify-content-between mb-1">
-                <span class="small">Profile Views</span>
-                <span class="small fw-medium">452</span>
-              </div>
-              <div class="progress" style="height: 8px;">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
 
-            <div class="mb-4">
-              <div class="d-flex justify-content-between mb-1">
-                <span class="small">Artwork Engagement</span>
-                <span class="small fw-medium">68%</span>
-              </div>
-              <div class="progress" style="height: 8px;">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 68%;" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <div class="mb-4">
-              <div class="d-flex justify-content-between mb-1">
-                <span class="small">Conversion Rate</span>
-                <span class="small fw-medium">12%</span>
-              </div>
-              <div class="progress" style="height: 8px;">
-                <div class="progress-bar bg-primary" role="progressbar" style="width: 12%;" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-
-            <a href="artist-analytics.html" class="btn btn-link text-decoration-none w-100">
-              <i class="bi bi-bar-chart me-2"></i> View Detailed Analytics
-            </a>
-          </div>
-        </div>
 
         <div class="card">
           <div class="card-header bg-white">

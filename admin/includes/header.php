@@ -51,8 +51,13 @@ session_start();
          </a>
       </li>
       <li class="nav-item">
-         <a class="nav-link active" href="admin-add-artwork.php">
+         <a class="nav-link " href="admin-add-artwork.php">
             <i class="bi bi-plus-circle me-2"></i> Add Artwork
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link " href="admin-artwork.php">
+            <i class="bi bi-plus-circle me-2"></i> Artworks
          </a>
       </li>
       <li class="nav-item">

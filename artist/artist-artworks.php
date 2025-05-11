@@ -75,7 +75,7 @@
                     <div class="col-md-3">
                         <div class="artwork-card shadow-sm rounded-4 overflow-hidden bg-white">
                             <div class="artwork-image position-relative">
-                                <img src="../admin/back/<?php echo $row['main_image'] ?>" alt="Artwork" width="500px">
+                                <img src="../admin/back/<?php echo $row['main_image'] ?>" alt="Artwork" width="100px">
                                 <div class="artwork-actions position-absolute top-0 end-0 p-2 d-flex gap-1">
                                     <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
                                         <i class="bi bi-pencil text-primary"></i>

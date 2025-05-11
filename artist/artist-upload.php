@@ -25,7 +25,7 @@
       <!-- Page content -->
       <div class="container py-4 animate-fade-in">
         <div class="mb-4">
-          <a href="artist-dashboard.html" class="btn btn-link text-decoration-none text-muted ps-0">
+          <a href="artist-dashboard.php" class="btn btn-link text-decoration-none text-muted ps-0">
             <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
           </a>
 
