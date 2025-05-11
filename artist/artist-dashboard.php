@@ -149,53 +149,6 @@
 
         </div>
 
-        <div class="mt-5">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold">Recent Sales</h2>
-            <a href="artist-sales.html" class="btn btn-link text-decoration-none">
-              View All <i class="bi bi-arrow-right"></i>
-            </a>
-          </div>
-
-          <div class="card">
-            <div class="table-responsive">
-              <table class="table table-hover mb-0">
-                <thead>
-                  <tr>
-                    <th>Artwork</th>
-                    <th>Customer</th>
-                    <th>Date</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Serenity in Blue</td>
-                    <td>John D.</td>
-                    <td class="text-muted">May 2, 2023</td>
-                    <td class="fw-medium">$1,500</td>
-                    <td><span class="badge bg-info">Shipped</span></td>
-                  </tr>
-                  <tr>
-                    <td>Autumn Leaves</td>
-                    <td>Sarah M.</td>
-                    <td class="text-muted">April 28, 2023</td>
-                    <td class="fw-medium">$950</td>
-                    <td><span class="badge bg-success">Delivered</span></td>
-                  </tr>
-                  <tr>
-                    <td>City Lights</td>
-                    <td>Michael R.</td>
-                    <td class="text-muted">April 15, 2023</td>
-                    <td class="fw-medium">$1,300</td>
-                    <td><span class="badge bg-success">Delivered</span></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Sidebar -->

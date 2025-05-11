@@ -33,49 +33,6 @@
                 include 'includes/msg.php';
                 ?>
 
-                <!-- Filters -->
-                <div class="card border-0 shadow-sm mb-4">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="feedbackType" class="form-label">Feedback Type</label>
-                                <select class="form-select" id="feedbackType">
-                                    <option value="all" selected>All Types</option>
-                                    <option value="review">Product Reviews</option>
-                                    <option value="service">Service Feedback</option>
-                                    <option value="website">Website Feedback</option>
-                                    <option value="advisor">Art Advisor Feedback</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="ratingFilter" class="form-label">Rating</label>
-                                <select class="form-select" id="ratingFilter">
-                                    <option value="all" selected>All Ratings</option>
-                                    <option value="5">5 Stars</option>
-                                    <option value="4">4 Stars</option>
-                                    <option value="3">3 Stars</option>
-                                    <option value="2">2 Stars</option>
-                                    <option value="1">1 Star</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3 mb-3 mb-md-0">
-                                <label for="statusFilter" class="form-label">Status</label>
-                                <select class="form-select" id="statusFilter">
-                                    <option value="all" selected>All Status</option>
-                                    <option value="new">New</option>
-                                    <option value="read">Read</option>
-                                    <option value="responded">Responded</option>
-                                    <option value="resolved">Resolved</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="searchFeedback" class="form-label">Search</label>
-                                <input type="text" class="form-control" id="searchFeedback" placeholder="Search feedback...">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Feedback List -->
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-white d-flex justify-content-between align-items-center">

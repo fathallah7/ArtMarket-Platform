@@ -44,24 +44,6 @@
                     <?php
                     include 'includes/msg.php';
                     ?>
-
-                    <div class="col-md-6">
-                        <div class="d-flex justify-content-md-end mt-3 mt-md-0">
-                            <div class="input-group me-2" style="max-width: 250px;">
-                                <input type="text" class="form-control" placeholder="Search artworks...">
-                                <button class="btn btn-outline-primary" type="button">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                            <select class="form-select" style="max-width: 150px;">
-                                <option selected>All Status</option>
-                                <option>For Sale</option>
-                                <option>Sold</option>
-                                <option>Not For Sale</option>
-                                <option>Draft</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
             </div>
 
