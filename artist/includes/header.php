@@ -43,7 +43,7 @@ session_start();
             </a>
          </li>
          <li class="nav-item mb-2">
-            <a href="#" class="nav-link">
+            <a href="artist-profile-update.php" class="nav-link">
                <i class="bi bi-person me-2"></i> Profile
             </a>
          </li>

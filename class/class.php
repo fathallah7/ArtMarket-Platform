@@ -219,6 +219,7 @@ class Artist extends User
 
     public static function register($name, $email, $password, $role)
     {
+        global $conn;
         require_once('../includes/conn.php');
 
         $checkQuery = "SELECT * FROM `users` WHERE `email` = '$email'";
@@ -238,10 +239,22 @@ class Artist extends User
         }
     }
 
+    public function ProfileUpdate($id, $name, $email, $image , $work_name , $bio)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $profileUpdate = "UPDATE `users` SET
+                            `name`='$name',`email`='$email',`image`='$image' , `work_name` = '$work_name' , `bio` = '$bio' 
+                                WHERE `id`='$id' ";
+        $profileResult = mysqli_query($conn, $profileUpdate);
+        return $profileResult;
+    }
+
 
 
     public function AddArtwork($publisherId, $title, $name, $category, $price, $quantity, $description, $year, $width, $height, $materials, $mainImage)
     {
+        global $conn;
         require_once('../includes/conn.php');
         $addArtwork = "INSERT INTO `artworks` (`publisher_id`, `title`, `artist_name`, `category`, `price`, `quantity`, `description`, `year_created`, `width`, `height`, `materials`, `main_image`)
                         VALUES ('$publisherId', '$title', '$name', '$category', '$price', '$quantity', '$description', '$year', '$width', '$height', '$materials', '$mainImage')";
@@ -250,30 +263,23 @@ class Artist extends User
         return $addArtworkResult;
     }
 
-        public function DeleteArtWork($id)
+    public function DeleteArtWork($id)
     {
+        global $conn;
         require_once('../includes/conn.php');
         $delete = " DELETE FROM `artworks` WHERE `id` = $id ";
         $artworkDelete = mysqli_query($conn, $delete);
         return $artworkDelete;
     }
 
-    public static function ShowArtWorks($id) {  
-
+    public static function ShowArtWorks($id)
+    {
         global $conn;
         require_once('../includes/conn.php');
         $showArts = "SELECT * FROM artworks WHERE publisher_id = $id ORDER BY id DESC ";
         $showArtskResult = mysqli_query($conn, $showArts);
         return $showArtskResult;
-
     }
-
-
-
-
-
-
-
 }
 
 
@@ -291,6 +297,7 @@ class Admin extends User
 
     public function AddArtwork($publisherId, $title, $artistId, $category, $price, $quantity, $description, $year, $width, $height, $materials, $mainImage)
     {
+        global $conn;
         require_once('../includes/conn.php');
         $addArtwork = "INSERT INTO `artworks` (`publisher_id`, `title`, `artist_name`, `category`, `price`, `quantity`, `description`, `year_created`, `width`, `height`, `materials`, `main_image`)
                         VALUES ('$publisherId', '$title', '$artistId', '$category', '$price', '$quantity', '$description', '$year', '$width', '$height', '$materials', '$mainImage')";
@@ -302,6 +309,7 @@ class Admin extends User
 
     public function DeleteArtWork($id)
     {
+        global $conn;
         require_once('../includes/conn.php');
         $delete = " DELETE FROM `artworks` WHERE `id` = $id ";
         $artworkDelete = mysqli_query($conn, $delete);

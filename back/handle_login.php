@@ -24,6 +24,8 @@ if (isset($_POST['submit'])) {
             $_SESSION['name'] = $user['name'];
             $_SESSION['user_email'] = $user['email'];
             $_SESSION['user_role'] = $user['role'];
+            $_SESSION['user_work_name'] = $user['work_name'];
+            $_SESSION['user_bio'] = $user['bio'];
             $_SESSION['user_image'] = $user['image'];
 
             if ($user['role'] === 'admin') {

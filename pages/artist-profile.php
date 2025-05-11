@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-9">
                     <h1><?php echo $row['name']; ?></h1>
-                    <p class="text-muted">Contemporary Painter | Based in Barcelona, Spain</p>
+                    <p class="text-muted"><?php echo $row['work_name']; ?></p>
                     <div class="artist-stats d-flex flex-wrap gap-4 mb-3">
                         <div>
                             <small class="text-muted">Artworks</small>
@@ -163,27 +163,11 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <h3>Biography</h3>
-                            <p>Elena Rodriguez is a contemporary artist known for her vibrant and emotionally charged paintings. Born in Barcelona in 1985, she developed an early interest in art, studying at the Barcelona School of Fine Arts before completing her Master's degree at the Royal College of Art in London.</p>
-                            <p>Her work explores themes of identity, memory, and the human experience through bold colors and expressive brushwork. Drawing inspiration from both urban environments and natural landscapes, Elena creates pieces that invite viewers to explore their own emotional responses to color and form.</p>
-                            <p>With over 15 years of experience, Elena has exhibited her work in galleries across Europe and North America, earning critical acclaim for her unique artistic vision. Her paintings are held in private collections worldwide and have been featured in several prestigious art publications.</p>
-
-                            <h3 class="mt-4">Artist Statement</h3>
-                            <p>"My work is an exploration of the emotional landscape that exists within all of us. Through color, texture, and movement, I seek to create visual experiences that resonate on a deeply personal level with viewers. Each painting is a journey—both for me as I create it and for those who engage with it.</p>
-                            <p>I believe that art has the power to transcend language and cultural barriers, speaking directly to our shared human experience. My goal is to create works that not only please the eye but also stir the soul, inviting reflection and emotional connection."</p>
-
-                            <h3 class="mt-4">Education</h3>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <p class="mb-0 fw-bold">Master of Fine Arts</p>
-                                    <p class="mb-0">Royal College of Art, London</p>
-                                    <p class="text-muted">2007-2009</p>
-                                </li>
-                                <li>
-                                    <p class="mb-0 fw-bold">Bachelor of Fine Arts</p>
-                                    <p class="mb-0">Barcelona School of Fine Arts</p>
-                                    <p class="text-muted">2003-2007</p>
-                                </li>
-                            </ul>
+                            <p>
+                                <?php
+                                echo !empty($row['bio']) ? $row['bio'] : "This artist has not added a biography yet.";
+                                ?>
+                            </p>
                         </div>
                         <div class="col-lg-4">
                             <div class="artist-sidebar">
