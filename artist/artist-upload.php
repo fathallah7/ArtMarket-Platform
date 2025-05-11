@@ -20,7 +20,7 @@
   <div class="d-flex">
 
     <!-- Main content -->
-    <div class="main-content">
+
 
       <!-- Page content -->
       <div class="container py-4 animate-fade-in">
@@ -239,7 +239,7 @@
           </div>
         </div>
       </div>
-    </div>
+
 
   </div>
 

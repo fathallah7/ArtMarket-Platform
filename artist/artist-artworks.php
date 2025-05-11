@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
-        
+
     </style>
 </head>
 
@@ -18,7 +18,7 @@
 
     <?php
     include 'includes/header.php';
-    include 'includes/conn.php';
+    include '../class/class.php';
     ?>
 
 
@@ -41,14 +41,10 @@
             <!-- Artwork Controls -->
             <div class="artwork-controls mb-4">
                 <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="d-flex align-items-center">
-                            <h3 class="mb-0 me-3">Your Artworks</h3>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadArtworkModal">
-                                <i class="bi bi-plus-lg me-2"></i> Upload New
-                            </button>
-                        </div>
-                    </div>
+                    <?php
+                    include 'includes/msg.php';
+                    ?>
+
                     <div class="col-md-6">
                         <div class="d-flex justify-content-md-end mt-3 mt-md-0">
                             <div class="input-group me-2" style="max-width: 250px;">
@@ -73,8 +69,7 @@
             <div class="row g-4">
                 <?php
                 $publisher_id = $_SESSION['user_id'];
-                $sql = "SELECT * FROM artworks WHERE publisher_id = $publisher_id";
-                $result = mysqli_query($conn, $sql);
+                $result = Artist::ShowArtWorks($publisher_id);
                 while ($row = mysqli_fetch_assoc($result)) {
                 ?>
                     <div class="col-md-3">
@@ -85,9 +80,9 @@
                                     <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
                                         <i class="bi bi-pencil text-primary"></i>
                                     </button>
-                                    <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Delete Artwork">
+                                    <a href="back/handle_upload_artist.php?id_delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-light rounded-circle shadow-sm">
                                         <i class="bi bi-trash text-danger"></i>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                             <div class="artwork-info p-3">
@@ -120,55 +115,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
-    </section>
-
-    <!-- Artwork Stats -->
-    <section class="artwork-stats py-5 bg-light">
-        <div class="container">
-            <div class="section-header mb-5">
-                <h2>Artwork Statistics</h2>
-                <p class="text-muted">Track the performance of your artwork</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="stat-card text-center">
-                        <div class="stat-icon mb-3">
-                            <i class="bi bi-eye fs-1"></i>
-                        </div>
-                        <h3>245</h3>
-                        <p class="text-muted">Total Views</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card text-center">
-                        <div class="stat-icon mb-3">
-                            <i class="bi bi-heart fs-1"></i>
-                        </div>
-                        <h3>87</h3>
-                        <p class="text-muted">Favorites</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card text-center">
-                        <div class="stat-icon mb-3">
-                            <i class="bi bi-cart-check fs-1"></i>
-                        </div>
-                        <h3>12</h3>
-                        <p class="text-muted">Sold Artworks</p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="stat-card text-center">
-                        <div class="stat-icon mb-3">
-                            <i class="bi bi-currency-dollar fs-1"></i>
-                        </div>
-                        <h3>$8,750</h3>
-                        <p class="text-muted">Total Sales</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 

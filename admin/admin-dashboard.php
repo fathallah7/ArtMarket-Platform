@@ -64,7 +64,7 @@
                                     <div>
                                         <h6 class="text-muted mb-1">Total Artists</h6>
                                         <?php
-                                        $result = $conn->query("SELECT COUNT(*) FROM users WHERE `role`= 'artists' ");
+                                        $result = $conn->query("SELECT COUNT(*) FROM users WHERE `role`= 'artist' ");
                                         $count = $result->fetch_row()[0];
                                         echo "<h3 class='mb-0'>$count</h3>";
                                         ?>

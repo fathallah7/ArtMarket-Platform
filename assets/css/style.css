@@ -623,7 +623,166 @@ a:hover {
   margin-bottom: 2rem;
 }
 
+
+
+
+
+
+
+
+        .artist-card {
+    background: linear-gradient(to bottom right, #ffffff, #f7f9fc);
+    border: none;
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.artist-image {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 0 6px #ffffff;
+}
+
+.artist-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.artist-card:hover .artist-image img {
+    transform: scale(1.08);
+}
+
+.artist-info h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 15px;
+    color: #222;
+}
+
+.artist-info .btn {
+    margin-top: 10px;
+    padding: 6px 20px;
+    font-weight: 500;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Artist Profile */
+
+.artwork-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.artwork-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.artwork-image {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+}
+
+.artwork-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.artwork-card:hover .artwork-image img {
+    transform: scale(1.05);
+}
+
+.artwork-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.artwork-card:hover .artwork-actions {
+    opacity: 1;
+}
+
+.btn-favorite,
+.btn-preview {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-favorite:hover,
+.btn-preview:hover {
+    background-color: #f0f0f0;
+}
+
+.artwork-info h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.artwork-info .price {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+}
+
+.artwork-info .btn {
+    font-size: 0.85rem;
+    border-radius: 8px;
+    padding: 6px 12px;
+}
+
+
 .artist-profile-header {
   padding: 80px 0 40px;
   background-color: var(--secondary-color);
@@ -680,34 +839,102 @@ a:hover {
   border-bottom: none;
 }
 
-/* Artwork Detail */
-.artwork-detail-section {
-  padding: 100px 0;
+
+/* تحسين الأرت بوكس ليظهر بشكل عصري وخفيف */
+.artbox {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    cursor: pointer;
 }
 
-.main-image {
-  margin-bottom: 1rem;
+/* تأثير عند التمرير */
+.artbox:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.image-thumbnails {
-  display: flex;
-  gap: 0.5rem;
+/* الصورة */
+.artbox-image {
+    height: 250px;
+    overflow: hidden;
 }
 
-.thumbnail {
-  cursor: pointer;
-  border: 2px solid transparent;
-  border-radius: 0.25rem;
-  overflow: hidden;
+.artbox-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.thumbnail.active {
-  border-color: var(--primary-color);
+/* التفاصيل */
+.artbox-details {
+    padding: 18px;
+    text-align: left;
 }
 
-.detail-item {
-  margin-bottom: 1rem;
+.artbox-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    transition: color 0.3s ease;
 }
+
+.artbox-price {
+    font-size: 18px;
+    color: #e74c3c;
+    margin-bottom: 12px;
+}
+
+.artbox:hover .artbox-title {
+    color: #3498db;
+}
+
+/* الأزرار */
+.btn-sm {
+    font-size: 14px;
+}
+
+.btn-outline-primary {
+    border: 1px solid #3498db;
+    color: #3498db;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+/* مظهر عصري مع الحواف المدورة */
+.btn-sm {
+    border-radius: 25px;
+}
+
+.artbox:hover .btn-primary {
+    background-color: #2980b9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Cart Page */
 .cart-section {

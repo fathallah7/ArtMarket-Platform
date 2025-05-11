@@ -10,7 +10,7 @@ session_start();
          </a>
          <div class="text-center mb-3">
             <div class="avatar-container mb-2">
-               <img src="" alt="User" class="rounded-circle" width="64" height="64">
+               <img src="../back/<?php echo $_SESSION['user_image'] ?>" alt="User" class="rounded-circle" width="64" height="64">
             </div>
             <p class="mb-0 fw-medium"><?php echo $_SESSION['name'] ?></p>
             <small class="text-muted"><?php echo $_SESSION['user_role'] ?></small>
@@ -70,7 +70,7 @@ session_start();
                   <a href="artist-dashboard.php" class="btn btn-outline-primary me-2">Artist Dashboard</a>
                   <div class="dropdown">
                      <a class="nav-icon dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/placeholder.svg?height=32&width=32" alt="Artist Name" class="rounded-circle" width="32" height="32">
+                        <img src="../back/<?php echo $_SESSION['user_image'] ?>" alt="Artist Name" class="rounded-circle" width="32" height="32">
                      </a>
                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                         <li><a class="dropdown-item" href="#">My Profile</a></li>
@@ -87,3 +87,4 @@ session_start();
             </div>
          </div>
       </nav>
+      

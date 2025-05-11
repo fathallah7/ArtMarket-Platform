@@ -48,11 +48,11 @@ if (!empty($_FILES['image']['name'])) {
 
     if ($done) {
         $_SESSION['msg'] = "Done .. You Added An ArtWork";
-        header("Location:../artist-upload.php");
+        header("Location:../artist-artworks.php");
         exit();
     } else {
         $_SESSION['error'] = "An Error";
-        header("Location:../artist-upload.php");
+        header("Location:../artist-artworks.php");
         exit();
     }
 }
@@ -63,16 +63,16 @@ if (!empty($_FILES['image']['name'])) {
 if (isset($_GET['id_delete'])) {
     $id = $_GET['id_delete'];
 
-    $admin = new Admin();
-    $deleted = $admin->DeleteArtWork($id);
+    $artist = new Artist();
+    $deleted = $artist->DeleteArtWork($id);
 
     if ($deleted) {
         $_SESSION['msg'] = "An Art Deleted";
-        header("Location:../artist-upload.php");
+        header("Location:../artist-artworks.php");
         exit();
     } else {
         $_SESSION['error'] = "An Error";
-        header("Location:../artist-upload.php");
+        header("Location:../artist-artworks.php");
         exit();
     }
 }

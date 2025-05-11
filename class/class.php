@@ -80,7 +80,7 @@ class Visitor extends User
     {
         global $conn;
         require_once('../includes/conn.php');
-        $showArts = "SELECT * FROM `artworks`";
+        $showArts = "SELECT * FROM `artworks` ORDER BY id DESC";
         $booksResult = mysqli_query($conn, $showArts);
         return $booksResult;
     }
@@ -248,6 +248,24 @@ class Artist extends User
 
         $addArtworkResult = mysqli_query($conn, $addArtwork);
         return $addArtworkResult;
+    }
+
+        public function DeleteArtWork($id)
+    {
+        require_once('../includes/conn.php');
+        $delete = " DELETE FROM `artworks` WHERE `id` = $id ";
+        $artworkDelete = mysqli_query($conn, $delete);
+        return $artworkDelete;
+    }
+
+    public static function ShowArtWorks($id) {  
+
+        global $conn;
+        require_once('../includes/conn.php');
+        $showArts = "SELECT * FROM artworks WHERE publisher_id = $id ORDER BY id DESC ";
+        $showArtskResult = mysqli_query($conn, $showArts);
+        return $showArtskResult;
+
     }
 
 

@@ -112,7 +112,10 @@
                 <?php
                 $visitor = new Visitor();
                 $rowData = $visitor->ShowArtWorks();
+                $count = 0;
                 while ($row = mysqli_fetch_assoc($rowData)) {
+                    if ($count >= 4) break;
+                    $count++;
                 ?>
                     <!-- Artwork 1 -->
                     <div class="col-sm-6 col-lg-3">
