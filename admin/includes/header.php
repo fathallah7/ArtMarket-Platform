@@ -61,6 +61,16 @@ session_start();
          </a>
       </li>
       <li class="nav-item">
+         <a class="nav-link " href="admin-add-fairs.php">
+            <i class="bi bi-plus-circle me-2"></i> Add Fairs
+         </a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link " href="admin-fairs.php">
+            <i class="bi bi-plus-circle me-2"></i> Fairs
+         </a>
+      </li>
+      <li class="nav-item">
          <a class="nav-link" href="admin-feedback.php">
             <i class="bi bi-chat-square-text me-2"></i> Feedback
             <span class="badge bg-danger rounded-pill ms-2">12</span>

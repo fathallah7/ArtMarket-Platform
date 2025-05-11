@@ -2,6 +2,12 @@
 require_once('../../class/class.php');
 session_start();
 
+if (!isset($_SESSION['user']) || $_SESSION['user_role'] != "admin") {
+    $_SESSION['error'] = "Login First";
+    header('Location:../admin-add-artwork.php');
+    exit();
+}
+
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $desc = $_POST['description'];
@@ -29,5 +35,26 @@ if (isset($_POST['submit'])) {
     } else {
         $_SESSION['error'] = "Failed to Add fair.";
         header("Location: ../admin-add-fairs.php");
+    }
+}
+
+
+
+// Delete Art
+
+if (isset($_GET['id_delete'])) {
+    $id = $_GET['id_delete'];
+
+    $admin = new Admin();
+    $deleted = $admin->DeleteFairs($id);
+
+    if ($deleted) {
+        $_SESSION['msg'] = "An Fair Deleted";
+        header("Location:../admin-fairs.php");
+        exit();
+    } else {
+        $_SESSION['error'] = "An Error";
+        header("Location:../admin-fairs.php");
+        exit();
     }
 }

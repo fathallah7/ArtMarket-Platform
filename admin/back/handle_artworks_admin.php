@@ -2,7 +2,6 @@
 
 session_start();
 require_once('../../class/class.php');
-include '../includes/msg.php';
 
 
 if (!isset($_SESSION['user']) || $_SESSION['user_role'] != "admin") {

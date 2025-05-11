@@ -364,6 +364,14 @@ class Admin extends User
         $result = mysqli_query($conn, $query);
         return $result;
     }
+
+    public function DeleteFairs($id)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $delete = " DELETE FROM `fairs` WHERE `id` = $id ";
+        $FairDelete = mysqli_query($conn, $delete);
+        return $FairDelete;
+    }
+
 }
-
-
