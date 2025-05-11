@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
