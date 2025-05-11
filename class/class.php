@@ -198,6 +198,15 @@ class Visitor extends User
     // ##########################################################################
 
 
+        public function ShowFairs()
+    {
+        global $conn;
+        require_once('../includes/conn.php');
+        $showFairs = "SELECT * FROM `fairs` ORDER BY id DESC";
+        $FairsResult = mysqli_query($conn, $showFairs);
+        return $FairsResult;
+    }
+
 
 
 
@@ -239,7 +248,7 @@ class Artist extends User
         }
     }
 
-    public function ProfileUpdate($id, $name, $email, $image , $work_name , $bio)
+    public function ProfileUpdate($id, $name, $email, $image, $work_name, $bio)
     {
         global $conn;
         require_once('../includes/conn.php');
@@ -344,6 +353,17 @@ class Admin extends User
 
 
 
+    public function createFairs($title, $desc, $date, $location, $price, $image)
+    {
+        global $conn;
+        require_once('../includes/conn.php');
 
+        $query = "INSERT INTO fairs (title, description, fair_date, location, price, image)
+                    VALUES ('$title', '$desc', '$date', '$location', '$price', '$image')";
 
+        $result = mysqli_query($conn, $query);
+        return $result;
+    }
 }
+
+

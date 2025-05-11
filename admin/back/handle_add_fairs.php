@@ -1,0 +1,33 @@
+<?php
+require_once('../../class/class.php');
+session_start();
+
+if (isset($_POST['submit'])) {
+    $title = $_POST['title'];
+    $desc = $_POST['description'];
+    $date = $_POST['fair_date'];
+    $location = $_POST['location'];
+    $price = $_POST['price'];
+
+    $imageName = $_FILES['image']['name'];
+    $uploadDir = 'uploads/fairs/';
+    $imagePath = $uploadDir . basename($imageName);
+    $dbImagePath = 'uploads/fairs/' . basename($imageName);
+
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
+
+    $admin = new Admin();
+    $done = $admin->createFairs($title, $desc, $date, $location, $price, $dbImagePath);
+
+    if ($done) {
+        $_SESSION['msg'] = "fair Added Successfully.";
+        header("Location: ../admin-add-fairs.php");
+    } else {
+        $_SESSION['error'] = "Failed to Add fair.";
+        header("Location: ../admin-add-fairs.php");
+    }
+}
