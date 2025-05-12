@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2025 at 02:16 PM
+-- Generation Time: May 13, 2025 at 12:15 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- Database: `art-gallery`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `advisor_requests`
+--
+
+CREATE TABLE `advisor_requests` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `art_types` text DEFAULT NULL,
+  `budget_range` varchar(50) DEFAULT NULL,
+  `display_space` varchar(100) DEFAULT NULL,
+  `space_description` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `advisor_requests`
+--
+
+INSERT INTO `advisor_requests` (`id`, `name`, `email`, `art_types`, `budget_range`, `display_space`, `space_description`, `created_at`) VALUES
+(1, 'Abdullah Mohamed', 'abdullahxoff@gmail.com', 'paintings', '500-1000', 'home-dining', 'hi', '2025-05-12 16:47:51');
 
 -- --------------------------------------------------------
 
@@ -241,6 +265,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `image`, `work_n
 --
 
 --
+-- Indexes for table `advisor_requests`
+--
+ALTER TABLE `advisor_requests`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `artworks`
 --
 ALTER TABLE `artworks`
@@ -315,6 +345,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `advisor_requests`
+--
+ALTER TABLE `advisor_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `artworks`
