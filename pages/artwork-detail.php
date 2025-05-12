@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center gap-2">
-                            <a href="view-in-room.html" class="btn btn-outline-primary">
+                            <a href="view-in-room.php" class="btn btn-outline-primary">
                                 <i class="bi bi-eye me-2"></i> View In Your Room
                             </a>
                             <button class="btn btn-outline-primary">
