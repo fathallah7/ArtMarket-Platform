@@ -14,23 +14,24 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNav">
          <ul class="navbar-nav me-auto">
             <li class="nav-item">
-               <a class="nav-link" href="admin-dashboard.php">Home</a>
+               <a class="nav-link" href="admin-dashboard.php">Dashboard</a>
             </li>
-         </ul>
-         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                  <img src="../assets/imgs/admin.png" alt="Profile" class="rounded-circle" width="32" height="32">
-                  <span class="ms-2">Administrator</span>
+            <li class="nav-item">
+               <a class="nav-link" href="admin-add-artwork.php">Add Artwork</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="admin-artwork.php">Artworks</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="admin-add-fairs.php">Add Fairs</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="admin-fairs.php">Fairs</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="admin-feedback.php">
+                  Feedback <span class="badge bg-danger rounded-pill ms-1">12</span>
                </a>
-               <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="admin-dashboard.php">Dashboard</a></li>
-                  <li><a class="dropdown-item" href="admin-profile.php">Profile</a></li>
-                  <li>
-                     <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="back/handle_logout_admin.php">Logout</a></li>
-               </ul>
             </li>
          </ul>
       </div>
