@@ -17,9 +17,9 @@ if (isset($_GET['id_del'])) {
 
 
 
-$data = json_decode(file_get_contents('php://input'), true);
-$artworkId = $data['artworkId'];
-$userId = $data['userId'];
+
+$artworkId = $_GET['id_fav'];
+$userId = $_SESSION['user_id'];
 
 $query = "SELECT * FROM favorites WHERE artwork_id = $artworkId AND user_id = $userId";
 $result = mysqli_query($conn, $query);
@@ -31,7 +31,6 @@ if (mysqli_num_rows($result) == 0) {
     header('Location:../pages/explore.php');
     exit();
 
-    echo json_encode(['success' => true]);
 } else {
     $deleteQuery = "DELETE FROM favorites WHERE artwork_id = $artworkId AND user_id = $userId";
     mysqli_query($conn, $deleteQuery);
@@ -39,7 +38,6 @@ if (mysqli_num_rows($result) == 0) {
     header('Location:../pages/explore.php');
     exit();
 
-    echo json_encode(['success' => true]);
 }
 
 

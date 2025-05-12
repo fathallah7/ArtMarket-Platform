@@ -48,7 +48,7 @@
                                         ?>
                                     </div>
                                     <div class="bg-primary bg-opacity-10 p-3 rounded">
-                                        <i class="bi bi-image text-primary fs-4"></i>
+                                        <i style="color: white;" class="fa-solid fa-newspaper"></i>
                                     </div>
                                 </div>
                                 <div class="mt-3">
@@ -106,8 +106,20 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div>
-                                        <h6 class="text-muted mb-1">Total Revenue</h6>
-                                        <h3 class="mb-0">$248,950</h3>
+                                        <?php
+                                        $qry = "SELECT SUM(total_amount) AS total_revenue FROM orders";
+                                        $result = mysqli_query($conn, $qry);
+                                        $totalRevenue = 0;
+                                        if ($result && mysqli_num_rows($result) > 0) {
+                                            $row = mysqli_fetch_assoc($result);
+                                            $totalRevenue = $row['total_revenue'];
+                                        }
+                                        ?>
+                                        <div>
+                                            <h6 class="text-muted mb-1">Total Revenue</h6>
+                                            <h3 class="mb-0">$<?php echo number_format($totalRevenue); ?></h3>
+                                        </div>
+
                                     </div>
                                     <div class="bg-warning bg-opacity-10 p-3 rounded">
                                         <i class="bi bi-currency-dollar text-warning fs-4"></i>
@@ -135,8 +147,7 @@
                                         <thead class="table-light">
                                             <tr>
                                                 <th>Order ID</th>
-                                                <th>Customer</th>
-                                                <th>Artwork</th>
+                                                <th>Customer ID</th>
                                                 <th>Amount</th>
                                                 <th>Status</th>
                                                 <th>Date</th>
@@ -144,39 +155,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#ORD-7845</td>
-                                                <td>Michael Brown</td>
-                                                <td>Abstract Composition #42</td>
-                                                <td>$2,800</td>
-                                                <td><span class="badge bg-warning text-dark">Processing</span></td>
-                                                <td>May 7, 2023</td>
-                                                <td>
-                                                    <a href="admin-order-detail.html" class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#ORD-7844</td>
-                                                <td>Emily Wilson</td>
-                                                <td>Coastal Sunset</td>
-                                                <td>$1,500</td>
-                                                <td><span class="badge bg-success">Completed</span></td>
-                                                <td>May 6, 2023</td>
-                                                <td>
-                                                    <a href="admin-order-detail.html" class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#ORD-7843</td>
-                                                <td>David Chen</td>
-                                                <td>Urban Landscape</td>
-                                                <td>$950</td>
-                                                <td><span class="badge bg-info">Shipped</span></td>
-                                                <td>May 5, 2023</td>
-                                                <td>
-                                                    <a href="admin-order-detail.html" class="btn btn-sm btn-outline-primary">View</a>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            $sql = "SELECT * FROM orders";
+                                            $result = mysqli_query($conn, $sql);
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                                <tr>
+                                                    <td>#ORD-<?php echo $row['id'] ?></td>
+                                                    <td>USER-<?php echo $row['user_id'] ?></td>
+                                                    <td>$ <?php echo $row['total_amount'] ?></td>
+                                                    <td><span class="badge bg-warning text-dark">Processing</span></td>
+                                                    <td><?php echo $row['order_date'] ?></td>
+                                                    <td>
+                                                        <a href="admin-order-detail.html" class="btn btn-sm btn-outline-primary">View</a>
+                                                    </td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

@@ -87,9 +87,9 @@
                                     <h1 class="fw-bold"><?php echo $row['title']; ?></h1>
                                     <p class="text-muted fs-5">by <?php echo $row['artist_name']; ?></p>
                                 </div>
-                                <button class="btn btn-primary rounded-circle p-2" id="favoriteBtn">
+                                <a href="../back/handle_favorites.php?id_fav=<?php echo $row['id']; ?>" class="btn btn-primary rounded-circle p-2" id="favoriteBtn">
                                     <i class="bi bi-heart"></i>
-                                </button>
+                                </a>
                             </div>
 
                             <div class="d-flex flex-wrap gap-2 mt-3">

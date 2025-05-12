@@ -20,14 +20,21 @@ abstract class User
 
     public static function login($email, $password)
     {
-        $qry = "SELECT * FROM `users` WHERE `email` = '$email' AND `password` = '$password' ";
+        global $conn;
         require_once('../includes/conn.php');
+
+        $qry = "SELECT * FROM `users` WHERE `email` = '$email'";
         $result = mysqli_query($conn, $qry);
-        if ($result->num_rows > 0) {
-            return mysqli_fetch_assoc($result);
-        } else {
-            return false;
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user = mysqli_fetch_assoc($result);
+
+            if (password_verify($password, $user['password'])) {
+                return $user;
+            }
         }
+
+        return false;
     }
 }
 
@@ -40,7 +47,6 @@ abstract class User
 class Visitor extends User
 {
 
-
     public static function register($name, $email, $password, $role)
     {
         require_once('../includes/conn.php');
@@ -52,8 +58,11 @@ class Visitor extends User
             return false;
         }
 
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
         $insertQuery = "INSERT INTO `users` (`name`, `email`, `password`, `role`)
-                    VALUES ('$name','$email', '$password', '$role')";
+                    VALUES ('$name','$email', '$hashedPassword', '$role')";
 
         if (mysqli_query($conn, $insertQuery)) {
             return true;
@@ -61,6 +70,7 @@ class Visitor extends User
             return false;
         }
     }
+
 
     // ##########################################################################
 
@@ -76,14 +86,39 @@ class Visitor extends User
 
     // ##########################################################################
 
-    public function ShowArtWorks()
+    public function ShowArtWorks($sort = 'featured', $search = '', $categories = [], $minPrice = 0, $maxPrice = 100000)
     {
         global $conn;
         require_once('../includes/conn.php');
-        $showArts = "SELECT * FROM `artworks` ORDER BY id DESC";
-        $booksResult = mysqli_query($conn, $showArts);
-        return $booksResult;
+
+        $orderBy = "ORDER BY id DESC";
+        if ($sort == 'low_to_high') {
+            $orderBy = "ORDER BY price ASC";
+        } elseif ($sort == 'high_to_low') {
+            $orderBy = "ORDER BY price DESC";
+        } elseif ($sort == 'newest') {
+            $orderBy = "ORDER BY created_at DESC";
+        }
+
+        $where = "WHERE price BETWEEN $minPrice AND $maxPrice";
+
+        if (!empty($search)) {
+            $search = mysqli_real_escape_string($conn, $search);
+            $where .= " AND (title LIKE '%$search%' OR artist_name LIKE '%$search%' OR materials LIKE '%$search%')";
+        }
+
+        if (!empty($categories)) {
+            $escapedCategories = array_map(function ($cat) use ($conn) {
+                return "'" . mysqli_real_escape_string($conn, $cat) . "'";
+            }, $categories);
+            $categoriesList = implode(',', $escapedCategories);
+            $where .= " AND category IN ($categoriesList)";
+        }
+
+        $query = "SELECT * FROM artworks $where $orderBy";
+        return mysqli_query($conn, $query);
     }
+
 
     public function ShowArtWorksMoreDetails($id)
     {
@@ -198,7 +233,7 @@ class Visitor extends User
     // ##########################################################################
 
 
-        public function ShowFairs()
+    public function ShowFairs()
     {
         global $conn;
         require_once('../includes/conn.php');
@@ -307,11 +342,6 @@ class Artist extends User
         $fairsRegResult = mysqli_query($conn, $fairsReg);
         return $fairsRegResult;
     }
-
-
-
-
-
 }
 
 
@@ -413,7 +443,7 @@ class Admin extends User
         return $FairDeleteArt;
     }
 
-        // ##########################################################################
+    // ##########################################################################
 
 
 

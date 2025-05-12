@@ -30,9 +30,34 @@
     </section>
 
 
+    <?php
+    $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
+
+    $sql = "SELECT * FROM users WHERE role = 'artist'";
+
+    if (!empty($search)) {
+        $sql .= " AND name LIKE '%" . mysqli_real_escape_string($conn, $search) . "%'";
+    }
+
+    switch ($sort) {
+        case 'az':
+            $sql .= " ORDER BY name ASC";
+            break;
+        case 'za':
+            $sql .= " ORDER BY name DESC";
+            break;
+        default:
+            $sql .= " ORDER BY name ASC";
+            break;
+    }
+
+    $result = mysqli_query($conn, $sql);
+    ?>
 
 
-    <!-- All Artists -->
+
+<!-- All Artists -->
     <section class="all-artists py-5">
         <div class="container">
             <div class="section-header mb-4">
@@ -41,68 +66,65 @@
             </div>
 
             <!-- Search and Filter -->
-            <div class="artist-filters mb-4">
-                <div class="row g-3">
-                    <div class="col-md-8">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search artists by name">
-                            <button class="btn btn-outline-primary" type="button">
-                                <i class="bi bi-search"></i>
-                            </button>
+            <form method="GET" action="">
+                <div class="artist-filters mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search artists by name" value="<?php echo htmlspecialchars($search); ?>">
+                                <button class="btn btn-outline-primary" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select" name="sort" onchange="this.form.submit()">
+                                <option value="">Sort by</option>
+                                <option value="az" <?php if ($sort == 'az') echo 'selected'; ?>>Name: A-Z</option>
+                                <option value="za" <?php if ($sort == 'za') echo 'selected'; ?>>Name: Z-A</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <select class="form-select">
-                            <option selected>Sort by</option>
-                            <option>Name: A-Z</option>
-                            <option>Name: Z-A</option>
-                            <option>Most Popular</option>
-                            <option>Recently Added</option>
-                        </select>
-                    </div>
                 </div>
-            </div>
+            </form>
 
             <!-- Artists Grid -->
             <div class="row g-4">
                 <?php
-                $sql = "SELECT * FROM users WHERE role = 'artist'";
-                $result = mysqli_query($conn, $sql);
-                while ($row = mysqli_fetch_assoc($result)) {
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
                 ?>
-                    <!-- Artist 1 -->
-                    <div class="col-md-3 mb-4">
-                        <div class="artist-card text-center">
-                            <div class="artist-image rounded-circle">
-                                <img src="../back/<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>" class="img-fluid rounded-circle">
-                            </div>
-                            <div class="artist-info mt-3">
-                                <h4><?php echo $row['name']; ?></h4>
-                                <a href="artist-profile.php?id_artist=<?php echo $row['id'];?>" class="btn btn-sm btn-outline-primary mt-2">View Profile</a>
+                        <div class="col-md-3 mb-4">
+                            <div class="artist-card text-center">
+                                <div class="artist-image rounded-circle">
+                                    <img src="../back/<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>" class="img-fluid rounded-circle">
+                                </div>
+                                <div class="artist-info mt-3">
+                                    <h4><?php echo $row['name']; ?></h4>
+                                    <a href="artist-profile.php?id_artist=<?php echo $row['id']; ?>" class="btn btn-sm btn-outline-primary mt-2">View Profile</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 <?php
+                    }
+                } else {
+                    echo "<p class='text-center'>No artists found.</p>";
                 }
                 ?>
             </div>
 
-            <!-- Pagination -->
             <nav aria-label="Artists pagination" class="mt-5">
                 <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                    </li>
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
             </nav>
         </div>
     </section>
+
 
     <!-- Become an Artist -->
     <section class="become-artist py-5 bg-primary text-white">

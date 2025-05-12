@@ -70,7 +70,6 @@
                                                         Actions
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="admin-edit-artwork.html">Edit</a></li>
                                                         <li><a class="dropdown-item text-danger" href="back/handle_artworks_admin.php?id_delete=<?php echo $row['id']; ?>">Delete</a></li>
                                                     </ul>
                                                 </div>

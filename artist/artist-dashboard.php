@@ -27,7 +27,7 @@
 
     <!-- Stats Cards -->
     <div class="row g-4 mb-5">
-      <div class="col-sm-6 col-lg-4">
+      <div class="col-sm-6 col-lg-6">
         <div class="card h-100">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-4">
+      <div class="col-sm-6 col-lg-6">
         <div class="card h-100">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
@@ -72,29 +72,6 @@
                 ?>
               </h2>
               <p class="text-muted mb-0">Favorites</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <div class="card h-100">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between">
-              <div class="rounded-3 bg-light p-2">
-                <i class="bi bi-cart text-primary fs-4"></i>
-              </div>
-              <span class="badge bg-light text-secondary">2 pending orders</span>
-            </div>
-            <div class="mt-3">
-              <h2 class="fw-bold">
-                <?php
-                $publisher_id = $_SESSION['user_id'];
-                $result = $conn->query("SELECT COUNT(*) FROM artworks WHERE `publisher_id`= '$publisher_id' ");
-                $count = $result->fetch_row()[0];
-                echo "<h3 class='mb-0'>$count</h3>";
-                ?>
-              </h2>
-              <p class="text-muted mb-0">Sales</p>
             </div>
           </div>
         </div>

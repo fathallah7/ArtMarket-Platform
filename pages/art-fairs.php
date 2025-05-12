@@ -73,7 +73,7 @@
                             <div id="form-<?php echo $fairId ?>" style="display: none;" class="mt-4 border-top pt-3">
                                 <form action="../back/handle_ticket_purchase.php" method="POST">
                                     <input type="hidden" name="fairs_id" value="<?php echo $fairId ?>">
-                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>"> <!-- Replace with session user_id -->                                    
+                                    <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id'] ?>">                                
                                     <button type="submit" name="submit" class="btn btn-success">Confirm Purchase</button>
                                 </form>
                             </div>

@@ -33,6 +33,9 @@
     <!-- Upcoming Fairs -->
     <section class="upcoming-fairs py-5">
         <div class="container">
+            <?php
+            include 'includes/msg.php';
+            ?>
             <div class="section-header mb-5">
                 <h2>Upcoming Art Fairs</h2>
                 <p class="text-muted">Apply to participate in these upcoming events</p>

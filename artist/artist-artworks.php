@@ -60,8 +60,6 @@
                                 <img src="../admin/back/<?php echo $row['main_image'] ?>" alt="Artwork" width="100px">
                                 <div class="artwork-actions position-absolute top-0 end-0 p-2 d-flex gap-1">
                                     <button class="btn btn-sm btn-light rounded-circle shadow-sm" title="Edit Artwork" data-bs-toggle="modal" data-bs-target="#editArtworkModal">
-                                        <i class="bi bi-pencil text-primary"></i>
-                                    </button>
                                     <a href="back/handle_upload_artist.php?id_delete=<?php echo $row['id']; ?>" class="btn btn-sm btn-light rounded-circle shadow-sm">
                                         <i class="bi bi-trash text-danger"></i>
                                     </a>

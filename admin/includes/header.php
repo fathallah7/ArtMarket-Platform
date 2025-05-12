@@ -2,6 +2,7 @@
 session_start();
 ?>
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
@@ -53,27 +54,27 @@ session_start();
       </li>
       <li class="nav-item">
          <a class="nav-link " href="admin-add-artwork.php">
-            <i class="bi bi-plus-circle me-2"></i> Add Artwork
+            <i class="fa-solid fa-square-plus"></i> Add Artwork
          </a>
       </li>
       <li class="nav-item">
          <a class="nav-link " href="admin-artwork.php">
-            <i class="bi bi-plus-circle me-2"></i> Artworks
+            <i class="fa-solid fa-images"></i> Artworks
          </a>
       </li>
       <li class="nav-item">
          <a class="nav-link " href="admin-add-fairs.php">
-            <i class="bi bi-plus-circle me-2"></i> Add Fairs
+            <i class="fa-solid fa-plus"></i> Add Fairs
          </a>
       </li>
       <li class="nav-item">
          <a class="nav-link " href="admin-fairs.php">
-            <i class="bi bi-plus-circle me-2"></i> Fairs
+            <i class="fa-solid fa-calendar-week"></i> Fairs
          </a>
       </li>
       <li class="nav-item">
          <a class="nav-link" href="admin-feedback.php">
-            <i class="bi bi-chat-square-text me-2"></i> Feedback
+            <i class="fa-solid fa-message"></i> Feedback
             <span class="badge bg-danger rounded-pill ms-2">12</span>
          </a>
       </li>

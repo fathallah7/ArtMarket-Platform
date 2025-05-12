@@ -102,16 +102,10 @@
                                             </button>
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="artistBio" class="form-label">Artist Bio</label>
-                                        <textarea class="form-control" name="bio" id="artistBio" rows="3" placeholder="Tell us about yourself and your art..."></textarea>
-                                    </div>
                                     <div class="d-grid">
                                         <button type="submit" name="submit" class="btn btn-primary">Create Account</button>
                                     </div>
                                 </form>
-
-
 
                             </div>
                         </div>

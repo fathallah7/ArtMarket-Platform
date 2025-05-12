@@ -2,7 +2,7 @@
 require_once('../../class/class.php');
 session_start();
 
-if (!isset($_SESSION['user']) || $_SESSION['user_role'] != "admin") {
+if ($_SESSION['user_role'] != "admin") {
     $_SESSION['error'] = "Login First";
     header('Location:../admin-add-artwork.php');
     exit();
