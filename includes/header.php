@@ -35,6 +35,9 @@ include '../includes/conn.php';
                     <a class="nav-link" href="gift-cards.php">Gift Card</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="customer-request-advisor.php">Art Advisor</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="feedback.php">Feedback</a>
                 </li>
             </ul>

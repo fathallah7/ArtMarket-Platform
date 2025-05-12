@@ -7,13 +7,16 @@ if (isset($_POST['submit'])) {
 
 
     if ($_POST['email'] == 'adminTABARAK@a.com' && $_POST['password'] == 'admin123TABARAK') {
-
-            $_SESSION['user_id'] = '0';
-            $_SESSION['name'] = 'Admin';
-            $_SESSION['user_email'] = 'adminTABARAK@a.com';
-            $_SESSION['user_role'] = 'admin';
-
+        $_SESSION['user_id'] = '0';
+        $_SESSION['name'] = 'Admin';
+        $_SESSION['user_email'] = 'adminTABARAK@a.com';
+        $_SESSION['user_role'] = 'admin';
         header("Location: ../admin/admin-dashboard.php");
+        exit();
+    }
+
+    if ($_POST['email'] == 'advisorTABARAK@a.com' && $_POST['password'] == 'advisor123TABARAK') {
+        header("Location: ../admin/advisor-dashboard.php");
         exit();
     }
 
