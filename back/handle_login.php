@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['user_email'] = 'adminTABARAK@a.com';
             $_SESSION['user_role'] = 'admin';
 
-        header("Location: ../admin/admin-add-artwork.php");
+        header("Location: ../admin/admin-dashboard.php");
         exit();
     }
 
